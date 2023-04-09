@@ -1,0 +1,139 @@
+[gd_scene load_steps=12 format=3 uid="uid://ch5v8j2pj2388"]
+
+[ext_resource type="Script" path="res://Scripts/Coin/Coin.gd" id="1_67jri"]
+[ext_resource type="AudioStream" uid="uid://c1igma36maexl" path="res://Assets/Sounds/coin.wav" id="3_f3l4t"]
+[ext_resource type="Texture2D" uid="uid://bxkkdr8mxn1ij" path="res://Assets/Objects/Coin_anim/coin1.png" id="4_73ty0"]
+[ext_resource type="Texture2D" uid="uid://bjom2a251wjil" path="res://Assets/Objects/Coin_anim/coin2.png" id="5_q4js1"]
+[ext_resource type="Texture2D" uid="uid://bui6cip34xobk" path="res://Assets/Objects/Coin_anim/coin3.png" id="6_5sbfl"]
+[ext_resource type="Texture2D" uid="uid://d5wxq71w2w8w" path="res://Assets/Objects/Coin_anim/coin4.png" id="6_tdk12"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_enbma"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_73ty0")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_73ty0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_q4js1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_5sbfl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_tdk12")
+}],
+"loop": false,
+"name": &"vanish",
+"speed": 10.0
+}]
+
+[sub_resource type="Animation" id="Animation_j3eb0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_ojw0r"]
+resource_name = "rotate"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.28319]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_outuy"]
+_data = {
+"RESET": SubResource("Animation_j3eb0"),
+"rotate": SubResource("Animation_ojw0r")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iy5md"]
+size = Vector2(21.8273, 126)
+
+[node name="Coin" type="Area2D"]
+z_index = 1
+collision_layer = 8
+collision_mask = 17
+script = ExtResource("1_67jri")
+
+[node name="coin_img" type="AnimatedSprite2D" parent="."]
+z_index = 1
+scale = Vector2(0.579057, 0.579057)
+sprite_frames = SubResource("SpriteFrames_enbma")
+animation = &"vanish"
+
+[node name="Rotation" type="AnimationPlayer" parent="coin_img"]
+libraries = {
+"": SubResource("AnimationLibrary_outuy")
+}
+
+[node name="collision" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(-0.85994, 0)
+scale = Vector2(1.59483, 0.267588)
+shape = SubResource("RectangleShape2D_iy5md")
+
+[node name="snd_coin" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_f3l4t")
+volume_db = 2.713
+
+[node name="amount" type="Label" parent="."]
+offset_left = -24.0
+offset_top = -40.0
+offset_right = 16.0
+offset_bottom = -14.0
+text = "0"
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="finished" from="snd_coin" to="." method="_on_snd_coin_finished"]

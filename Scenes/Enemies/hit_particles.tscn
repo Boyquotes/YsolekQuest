@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://bfo5lra8m4pvy"]
+
+[ext_resource type="Texture2D" uid="uid://bxe1pvh8vnhtm" path="res://Assets/Particles/blood_2.png" id="1_qpkas"]
+[ext_resource type="Script" path="res://Scripts/enemies/hit_particles.gd" id="2_5suuj"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_4amub"]
+
+[node name="hit_particles" type="CPUParticles2D"]
+z_index = 1
+material = SubResource("CanvasItemMaterial_4amub")
+scale = Vector2(0.5, 0.5)
+amount = 10
+lifetime = 1.5
+speed_scale = 2.1
+explosiveness = 0.78
+randomness = 0.08
+lifetime_randomness = 0.08
+texture = ExtResource("1_qpkas")
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 0.01
+initial_velocity_max = 25.0
+angular_velocity_min = 1.0
+angular_velocity_max = 2.0
+linear_accel_min = 17.83
+linear_accel_max = 17.83
+script = ExtResource("2_5suuj")

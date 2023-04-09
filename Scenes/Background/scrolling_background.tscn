@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://djnsxf0xoy7hr"]
+
+[ext_resource type="Shader" path="res://Scenes/Background/scrolling_background.gdshader" id="1_yimyy"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vr7x4"]
+resource_local_to_scene = true
+shader = ExtResource("1_yimyy")
+shader_parameter/scroll_speed = 0.01
+
+[node name="ScrollingBackground" type="TextureRect"]
+material = SubResource("ShaderMaterial_vr7x4")
+offset_right = 40.0
+offset_bottom = 40.0
+stretch_mode = 1

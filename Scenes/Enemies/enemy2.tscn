@@ -1,0 +1,447 @@
+[gd_scene load_steps=37 format=3 uid="uid://b76igam5emt8l"]
+
+[ext_resource type="Script" path="res://Scripts/enemies/enemy.gd" id="1_f3jkq"]
+[ext_resource type="Texture2D" uid="uid://b8i8bw4tpo0wo" path="res://Assets/Enemy/monster_1/enemy_head1.png" id="2_35clc"]
+[ext_resource type="Script" path="res://Scripts/enemy-fsm/EnemyStateMachine.gd" id="3_73c5n"]
+[ext_resource type="Texture2D" uid="uid://cn3qgdl45513k" path="res://Assets/Enemy/monster_1/enemy_korpus1.png" id="3_jsagn"]
+[ext_resource type="Texture2D" uid="uid://cdoj2usu3xuis" path="res://Assets/Enemy/monster_1/enemy_reka_L.png" id="4_b4djb"]
+[ext_resource type="Script" path="res://Scripts/enemies/Death.gd" id="5_h3bh6"]
+[ext_resource type="Texture2D" uid="uid://ctt41alg37wei" path="res://Assets/Enemy/monster_1/enemy_noga_L.png" id="5_rfr07"]
+[ext_resource type="Texture2D" uid="uid://2t4ekpb73mve" path="res://Assets/Enemy/monster_1/enemy_noga_P.png" id="6_hyob7"]
+[ext_resource type="Script" path="res://Scripts/enemies/jump.gd" id="6_oanmb"]
+[ext_resource type="Script" path="res://Scripts/enemies/idle.gd" id="7_y7nqm"]
+[ext_resource type="Script" path="res://Scripts/enemies/Atack.gd" id="8_wqp3h"]
+[ext_resource type="Texture2D" uid="uid://yys078cup8yd" path="res://Assets/Objects/barHorizontal_red3.png" id="9_3b18c"]
+[ext_resource type="Script" path="res://Scripts/enemies/Walk_Left.gd" id="9_ruqal"]
+[ext_resource type="Texture2D" uid="uid://c1txs3rc7suh6" path="res://Assets/Objects/barHorizontal_red2.png" id="10_cba88"]
+[ext_resource type="Script" path="res://Scripts/enemies/Walk_Right.gd" id="10_udab0"]
+[ext_resource type="Script" path="res://Scripts/enemies/Health.gd" id="11_ir4fe"]
+[ext_resource type="Script" path="res://Scripts/enemies/Hit.gd" id="13_a68cd"]
+[ext_resource type="AudioStream" uid="uid://em8gixmuuc4y" path="res://Assets/Sounds/Hero/jump1.wav" id="13_wvxlk"]
+[ext_resource type="AudioStream" uid="uid://nm6wrhr8ky06" path="res://Assets/Sounds/Hero/upadek1.wav" id="14_fhll0"]
+[ext_resource type="Script" path="res://Scripts/enemies/Follow.gd" id="15_1su4c"]
+[ext_resource type="AudioStream" uid="uid://dkyg3pkatql21" path="res://Assets/Sounds/Hero/sit_down1.wav" id="15_7ifd2"]
+[ext_resource type="AudioStream" uid="uid://cg41nvsnxgm4d" path="res://Assets/Sounds/Footstep_Tile_Right.wav" id="16_hfkfr"]
+[ext_resource type="Texture2D" uid="uid://cpwxucu8mg3t0" path="res://Assets/Objects/say.png" id="24_b1m00"]
+[ext_resource type="Script" path="res://Scripts/enemies/HitPoints.gd" id="24_oenr4"]
+[ext_resource type="Script" path="res://Scripts/enemies/Say.gd" id="25_uiehf"]
+[ext_resource type="Script" path="res://Scripts/enemies/PlayerActivity.gd" id="26_0vie6"]
+[ext_resource type="FontFile" uid="uid://bmonncwiob81c" path="res://Assets/Fonts/Kalam-Regular.ttf" id="26_hy7de"]
+[ext_resource type="Script" path="res://Scripts/enemies/SeeCastLine.gd" id="28_rgskl"]
+[ext_resource type="Texture2D" uid="uid://gfy6x0i3n7sn" path="res://Assets/marker_green.png" id="29_5jy5e"]
+[ext_resource type="AudioStream" uid="uid://dcu22eeu4mh44" path="res://Assets/Sounds/Creepy3.mp3" id="30_f38vb"]
+
+[sub_resource type="Animation" id="Animation_umatf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasGroup/Noga_P:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-1, 106.529)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasGroup/Noga_P:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.0302793]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasGroup/Noga_L:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-4, 106.118)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CanvasGroup/Noga_L:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0270725]
+}
+
+[sub_resource type="Animation" id="Animation_2bxmv"]
+resource_name = "hitme"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasGroup/Torso:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-5, 68), Vector2(7, 68)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasGroup/Torso:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-0.0352773, 0.22953]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasGroup/Torso/Head:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.191699, 0.777922]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CanvasGroup/Torso/Head:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(31.515, -148.915), Vector2(31.515, -148.915)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CanvasGroup/Noga_L:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-14, 113), Vector2(-21, 113)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CanvasGroup/Noga_L:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0270725, 0.268846]
+}
+
+[sub_resource type="Animation" id="Animation_47teo"]
+resource_name = "idle"
+length = 8.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasGroup/Torso:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-0.0352773, -0.246912]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasGroup/Torso/Head:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.240305]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasGroup/Torso/Head:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(31.515, -148.915)]
+}
+
+[sub_resource type="Animation" id="Animation_50xrh"]
+resource_name = "walk"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasGroup/Noga_P:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [-0.0302793, 0.165827, -0.0302793, -0.191565, -0.0302793]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasGroup/Noga_P:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-1, 106.529), Vector2(-1, 106.529), Vector2(-1, 106.529), Vector2(-1, 106.529), Vector2(-1, 106.529)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasGroup/Noga_L:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0270725, -0.26779, 0.0270725, 0.145503, 0.0270725]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CanvasGroup/Noga_L:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-4, 106.118), Vector2(-4, 106.118), Vector2(-4, 106.118), Vector2(-4, 106.118), Vector2(-4, 106.118)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lv6he"]
+_data = {
+"RESET": SubResource("Animation_umatf"),
+"hitme": SubResource("Animation_2bxmv"),
+"idle": SubResource("Animation_47teo"),
+"walk": SubResource("Animation_50xrh")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dohkw"]
+size = Vector2(16.2923, 218.771)
+
+[node name="Enemy" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 17
+script = ExtResource("1_f3jkq")
+
+[node name="CanvasGroup" type="CanvasGroup" parent="."]
+
+[node name="Torso" type="Sprite2D" parent="CanvasGroup"]
+position = Vector2(-5, 68)
+rotation = -0.0352773
+scale = Vector2(0.328543, 0.328543)
+texture = ExtResource("3_jsagn")
+
+[node name="Head" type="Sprite2D" parent="CanvasGroup/Torso"]
+z_index = 1
+position = Vector2(31.515, -148.915)
+rotation = 0.191699
+scale = Vector2(0.747418, 0.747418)
+texture = ExtResource("2_35clc")
+offset = Vector2(11.5281, -115.281)
+
+[node name="Reka_L" type="Sprite2D" parent="CanvasGroup/Torso"]
+position = Vector2(-94.4986, -24.3677)
+rotation = 0.189946
+scale = Vector2(1.34067, 1.34067)
+texture = ExtResource("4_b4djb")
+
+[node name="Reka_P" type="Sprite2D" parent="CanvasGroup/Torso"]
+z_index = -1
+position = Vector2(42.9351, -60.879)
+rotation = -0.48303
+scale = Vector2(1.26599, 1.26599)
+texture = ExtResource("4_b4djb")
+offset = Vector2(-95.329, 48.1856)
+
+[node name="Noga_L" type="Sprite2D" parent="CanvasGroup"]
+z_index = -1
+position = Vector2(-4, 106.118)
+rotation = 0.0270725
+scale = Vector2(0.2682, 0.2682)
+texture = ExtResource("5_rfr07")
+offset = Vector2(-21.2144, 145.47)
+
+[node name="Noga_P" type="Sprite2D" parent="CanvasGroup"]
+z_index = -1
+position = Vector2(-1, 106.529)
+rotation = -0.0302793
+scale = Vector2(0.285138, 0.285138)
+texture = ExtResource("6_hyob7")
+offset = Vector2(-17.0368, 150.492)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_lv6he")
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+z_index = 1
+position = Vector2(4.00003, 68)
+scale = Vector2(2.94618, 1.10618)
+shape = SubResource("RectangleShape2D_dohkw")
+
+[node name="EnemyStateMachine" type="Node" parent="."]
+script = ExtResource("3_73c5n")
+einitial_state = NodePath("Air")
+
+[node name="idle" type="Node" parent="EnemyStateMachine"]
+script = ExtResource("7_y7nqm")
+
+[node name="Walk_Left" type="Node" parent="EnemyStateMachine"]
+script = ExtResource("9_ruqal")
+
+[node name="Walk_Right" type="Node" parent="EnemyStateMachine"]
+script = ExtResource("10_udab0")
+
+[node name="Death" type="Node" parent="EnemyStateMachine"]
+script = ExtResource("5_h3bh6")
+
+[node name="Air" type="Node" parent="EnemyStateMachine"]
+script = ExtResource("6_oanmb")
+
+[node name="Atack" type="Node" parent="EnemyStateMachine"]
+script = ExtResource("8_wqp3h")
+
+[node name="Hit" type="Node" parent="EnemyStateMachine"]
+script = ExtResource("13_a68cd")
+
+[node name="Follow_left" type="Node" parent="EnemyStateMachine"]
+script = ExtResource("15_1su4c")
+
+[node name="snd_walk" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("16_hfkfr")
+volume_db = -4.192
+
+[node name="snd_jump" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("13_wvxlk")
+
+[node name="snd_fall" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("14_fhll0")
+
+[node name="snd_sit" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("15_7ifd2")
+
+[node name="Health" type="TextureProgressBar" parent="."]
+top_level = true
+offset_top = -68.0
+offset_right = 200.0
+offset_bottom = -28.0
+scale = Vector2(0.337449, 0.337449)
+value = 50.0
+texture_under = ExtResource("9_3b18c")
+texture_progress = ExtResource("10_cba88")
+script = ExtResource("11_ir4fe")
+
+[node name="HitPoints" type="Label" parent="."]
+top_level = true
+offset_top = -93.0
+offset_right = 40.0
+offset_bottom = -70.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+text = "0"
+script = ExtResource("24_oenr4")
+
+[node name="Recover_Health" type="Timer" parent="."]
+wait_time = 10.0
+autostart = true
+
+[node name="Say" type="Sprite2D" parent="."]
+top_level = true
+z_index = -1
+position = Vector2(4, -106)
+scale = Vector2(0.083873, 0.083873)
+texture = ExtResource("24_b1m00")
+script = ExtResource("25_uiehf")
+
+[node name="SayTextLabel" type="Label" parent="Say"]
+offset_left = -75.0
+offset_top = -54.0
+offset_right = 5.0
+offset_bottom = -28.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("26_hy7de")
+theme_override_font_sizes/font_size = 20
+
+[node name="snd_eeee" type="AudioStreamPlayer2D" parent="Say"]
+
+[node name="PlayerActivity" type="Timer" parent="."]
+wait_time = 20.0
+script = ExtResource("26_0vie6")
+
+[node name="PlayerCast2D" type="RayCast2D" parent="."]
+rotation = 1.56997
+scale = Vector2(0.738, 15)
+
+[node name="PlayerCastLine" type="Node2D" parent="."]
+visible = false
+top_level = true
+z_index = 2
+script = ExtResource("28_rgskl")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="Marker2D"]
+z_index = 2
+scale = Vector2(0.246944, 0.246944)
+texture = ExtResource("29_5jy5e")
+
+[node name="snd_first_see" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("30_f38vb")
+volume_db = 8.872
+pitch_scale = 1.08
+
+[connection signal="somebody_hitme" from="." to="EnemyStateMachine/idle" method="_on_enemy_somebody_hitme"]
+[connection signal="somebody_hitme" from="." to="EnemyStateMachine/Walk_Right" method="_on_enemy_somebody_hitme"]
+[connection signal="somebody_hitme" from="." to="EnemyStateMachine/Hit" method="_on_enemy_somebody_hitme"]
+[connection signal="somebody_hitme" from="." to="EnemyStateMachine/Follow_left" method="_on_enemy_somebody_hitme"]
+[connection signal="animation_finished" from="AnimationPlayer" to="EnemyStateMachine/Hit" method="_on_animation_player_animation_finished"]
+[connection signal="first_hero_catch" from="EnemyStateMachine/idle" to="Say" method="_on_idle_first_hero_catch"]
+[connection signal="first_hero_catch" from="EnemyStateMachine/Follow_left" to="Say" method="_on_follow_left_first_hero_catch"]
+[connection signal="timeout" from="Recover_Health" to="." method="_on_recover_health_timeout"]

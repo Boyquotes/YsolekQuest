@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://1qp52xv868g7"]
+
+[ext_resource type="Texture2D" uid="uid://dixuean8o1l3w" path="res://Assets/Objects/ak47.png" id="1_jeedp"]
+[ext_resource type="Script" path="res://Scripts/Gun/Gun.gd" id="2_b2icd"]
+[ext_resource type="Script" path="res://Scripts/Gun/BulletsSpawn.gd" id="3_bxr2y"]
+[ext_resource type="Texture2D" uid="uid://gfy6x0i3n7sn" path="res://Assets/marker_green.png" id="4_yvk7i"]
+[ext_resource type="AudioStream" uid="uid://dk75gtdsjk48b" path="res://Assets/Sounds/Sfx/explosion.wav" id="5_282g4"]
+
+[node name="Gun2" type="Sprite2D"]
+z_index = -1
+position = Vector2(231.388, -260.65)
+rotation = -1.74781
+scale = Vector2(1.76134, 1.76134)
+texture = ExtResource("1_jeedp")
+offset = Vector2(81.2121, 7.83571)
+script = ExtResource("2_b2icd")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.33
+one_shot = true
+
+[node name="BulletsSpawn" type="Marker2D" parent="."]
+position = Vector2(420.134, -19.4763)
+rotation = -0.00248074
+scale = Vector2(0.574951, 0.574951)
+gizmo_extents = 61.1
+script = ExtResource("3_bxr2y")
+
+[node name="SpawnMarker" type="Sprite2D" parent="BulletsSpawn"]
+visible = false
+texture = ExtResource("4_yvk7i")
+
+[node name="HandMarker" type="Sprite2D" parent="."]
+visible = false
+z_index = 1
+texture = ExtResource("4_yvk7i")
+
+[node name="snd_fire1" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(-123.77, -24.9809)
+scale = Vector2(0.56775, 0.56775)
+stream = ExtResource("5_282g4")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
