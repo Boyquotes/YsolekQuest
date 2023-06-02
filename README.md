@@ -5,6 +5,8 @@
 
 For prototyping , i downloaded some assets from itch.io and opengameart.org under free licenses and some i created myself in blender and gimp.
 
+Inspiration and sample very small fragments come from free examples available on the web, documentation, as well as the state machine I used from examples, perhaps gdquest.
+
 
 Here is the link to the youtube channel
 
