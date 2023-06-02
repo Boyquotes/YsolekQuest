@@ -17,21 +17,26 @@ func physics_update(_delta: float) -> void:
 		state_machine.transition_to("Air")
 		gv.Hero_is_on_floor = false
 		return
+		
+	if gv.Hero_is_paused == true:	
+		return
 
 	if Input.is_action_just_pressed("ui_up"):
 		state_machine.transition_to("Air", {do_jump = true})
 	
 	elif Input.is_action_pressed("ui_left"):
-		player.scale.x = player.scale.y * -1
-		gv.Hero_direction = Vector2.LEFT
-		state_machine.transition_to("Walk")
-		turn.emit(false)  
+		if gv.Hero_is_paused == false:
+			player.scale.x = player.scale.y * -1
+			gv.Hero_direction = Vector2.LEFT
+			state_machine.transition_to("Walk")
+			turn.emit(false)  
 	
 	elif Input.is_action_pressed("ui_right"):
-		gv.Hero_direction = Vector2.RIGHT
-		player.scale.x = player.scale.y * 1
-		state_machine.transition_to("Walk")
-		turn.emit(true)
+		if gv.Hero_is_paused == false:
+			gv.Hero_direction = Vector2.RIGHT
+			player.scale.x = player.scale.y * 1
+			state_machine.transition_to("Walk")
+			turn.emit(true)
 		
 		
 	# RUN RIGHT:	

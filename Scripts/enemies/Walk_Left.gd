@@ -4,21 +4,51 @@ extends EnemyState
 # # WALK LEFT.SCRIPT  #
 # #####################
 
+var player_distance:float
+
 func enter(_msg := {}) -> void:
 	get_node("../../AnimationPlayer").stop()
 	enemy.scale.x = enemy.scale.y * 1
+	enemy.direction = "L"
 	get_node("../../AnimationPlayer").play("walk")
-	print("enemy: WALK LEFT")
-	pass
+	print("enemy fsm: WALK LEFT")
+	
 
-@warning_ignore("unused_parameter")	
+#@warning_ignore("unused_parameter")	
 func physics_update(delta: float) -> void:
 	enemy.velocity.x = -enemy.speed
 	enemy.velocity.y += enemy.gravity * delta
-	enemy.move_and_slide()
+	player_distance = enemy.global_position.distance_to(gv.Hero_global_position)
 	
-	if enemy.position.distance_to(gv.Hero_position) > 500:
+	if get_node("../../snd_walk").playing != true:
+			get_node("../../snd_walk").play()
+			
+	if player_distance < enemy.contact_distance + 500:
+		# if gv.Hero_pos_x + enemy.change_direction_distance < enemy.position.x:
+		# 	enemy.scale.x = enemy.scale.y * 1
+		# 	enemy.direction = "L"
+		# if gv.Hero_pos_x - enemy.change_direction_distance > enemy.position.x:
+		# 	enemy.scale.x = enemy.scale.y * -1
+		# 	enemy.direction = "R"
+
+		get_node("../../AnimationPlayer").stop()
+		enemy.previous_state = gv.enemy_fsm.estate.name
+		estate_machine.transition_to("idle")		
+
+#	if enemy.see_Player == true:
+#		get_node("../../AnimationPlayer").stop()
+#		enemy.previous_state = gv.enemy_fsm.estate.name
+#		estate_machine.transition_to("idle")
+		
+#	if enemy.position.distance_to(gv.Hero_global_position) > 500:
+#		enemy.previous_state = gv.enemy_fsm.estate.name
+#		get_node("../../AnimationPlayer").stop()
+#		estate_machine.transition_to("idle")
+	
+	if enemy.is_on_wall():	
 		enemy.previous_state = gv.enemy_fsm.estate.name
 		get_node("../../AnimationPlayer").stop()
-		estate_machine.transition_to("idle")
+		print("enemy2: stop on wall going left")
+		estate_machine.transition_to("Jump_left")		
 		
+	enemy.move_and_slide()

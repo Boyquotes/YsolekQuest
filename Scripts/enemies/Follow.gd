@@ -13,7 +13,7 @@ func enter(_msg := {}) -> void:
 	get_node("../../AnimationPlayer").stop()
 	enemy.scale.x = enemy.scale.y * 1
 	get_node("../../AnimationPlayer").play("walk")
-	print("enemy: FOLLOW LEFT")
+	print("enemy fsm: FOLLOW LEFT")
 	pass
 
 func _process(_delta: float) -> void:
@@ -49,12 +49,12 @@ func physics_update(delta: float) -> void:
 			print("enemy: ray hit --> " + ray_cast.get_collider().name)	
 		
 		
-	
-	if enemy.is_on_wall():
+				
+	if enemy.is_on_wall():	
 		enemy.previous_state = gv.enemy_fsm.estate.name
 		get_node("../../AnimationPlayer").stop()
-		print("enemy: stop on wall going left")
-		estate_machine.transition_to("idle")
+		print("enemy2: stop on wall going left")
+		estate_machine.transition_to("Jump_left")		
 		
 		
 			

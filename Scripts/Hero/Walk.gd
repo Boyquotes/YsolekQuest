@@ -21,6 +21,10 @@ func physics_update(delta: float) -> void:
 	if not player.is_on_floor():
 		state_machine.transition_to("Air")
 		return
+	
+	if gv.Hero_is_paused == true:
+		state_machine.transition_to("Idle")
+		return	
 
 	var input_direction_x: float = (
 		Input.get_action_strength("ui_right")
@@ -28,6 +32,11 @@ func physics_update(delta: float) -> void:
 		
 	player.velocity.x = player.speed * input_direction_x
 	player.velocity.y += player.gravity * delta
+	
+	#if player.is_on_wall():
+		#print("Hero: stop on wall going: " + str(input_direction_x))
+		
+	
 	player.move_and_slide()
 			
 	get_node("../../AnimationPlayer").play("walk")
@@ -41,7 +50,7 @@ func physics_update(delta: float) -> void:
 		state_machine.transition_to("Idle")
 
 func _timer_timeout():
-	print("Hero Walk fsm: Timeout test pass ")
+	#print("Hero Walk fsm: Timeout test pass ")
 	pass
 
 

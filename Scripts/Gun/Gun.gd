@@ -5,12 +5,15 @@ extends Sprite2D
 
 var can_fire:bool = true
 var bullet:Resource = preload("res://Scenes/Bullet/Bullet.tscn")
+var bullet_shell:Resource = preload("res://Scenes/Bullet/Bullet_shell.tscn")
 var recoil:int = 50
+var shoots:int = 0
 const ammo_max:int = 45
 var ammo:int = ammo_max
 signal fire
 
 func _ready():
+	#$Bullet_shell.emiting(false)
 	pass
 		
 func _process(_delta: float) -> void:
@@ -31,12 +34,19 @@ func shoot():
 		ammo -= 1
 	else:
 		return	
-	var blt:Node = bullet.instantiate()
+	var blt:Area2D = bullet.instantiate()
+	var shell:RigidBody2D = bullet_shell.instantiate()
+	blt.name = "Bullet" + str(shoots)
 	get_tree().root.add_child(blt)
+	get_tree().root.add_child(shell)
 	#$BulletsSpawn.call_defered("add_child",blt)
 	blt.transform = get_node("BulletsSpawn").global_transform
+	shell.transform = get_node("Shells_spawn").global_transform
+	shoots += 1
 	$snd_fire1.play()
 	fire.emit()
+	#$Bullet_shell.restart()
+	#$Bullet_shell.emiting(true)
 	
 			
 func _on_timer_timeout():

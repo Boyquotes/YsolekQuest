@@ -30,9 +30,11 @@ func _process(_delta):
 		
 		
 func _physics_process(_delta):
-	position.x = gv.Hero_pos_x
-	position.y = gv.Hero_pos_y * 0.1 - 50
-	pass
+	position.x = gv.Hero_global_position.x
+	position.y = gv.Hero_global_position.y * 0.1 - 50
+	
+	
+	
 
 func _set_zoom_level(value: float) -> void:
 	_zoom_level = clamp(value, min_zoom, max_zoom)

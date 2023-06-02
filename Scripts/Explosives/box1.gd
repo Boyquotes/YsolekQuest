@@ -1,5 +1,5 @@
 # ##########################
-# # Explosive_box  .SCRIPT #
+# # Box1           .SCRIPT #
 # ##########################
 
 extends Area2D
@@ -10,34 +10,33 @@ func _ready():
 	hit_count = randi_range(1,4)
 	$Sprite.stop()
 	$Hitpoints.text = str(hit_count)
-	pass
-
+	
 func _process(_delta) -> void:
 	if hit_count == 0 and $Sprite.is_playing() == false:
-	#if hit_count == 0:	
 		self.queue_free()
 
 @warning_ignore("unused_parameter")
 func _physics_process(delta):
 	pass
 
+@warning_ignore("unused_parameter")
 func _on_area_entered(area):
-	if "Bullet".is_subsequence_of(area.name):
-		if hit_count > 0:
-			print("box1: dostałam od: " + area.name + " hits: " + str(hit_count))
-			hit_count -= 1
-			$Hitpoints.text = str(hit_count)
-			if hit_count == 0:
-				$Sprite.play("explode")
-				$snd_explode.play()
-				ShakeScreen.shake(10,0.5)	
+	pass
 	
 @warning_ignore("unused_parameter")
 func _on_body_entered(body):
 	pass
 
 func hit():
-	print("box1: somebody hit me by bullet!") 
+	#if "Bullet".is_subsequence_of(area.name):
+	if hit_count > 0:
+		print("box1: dostałam od: " + "hits: " + str(hit_count))
+		hit_count -= 1
+		$Hitpoints.text = str(hit_count)
+		if hit_count == 0:
+			$Sprite.play("explode")
+			$snd_explode.play()
+			ShakeScreen.shake(10,0.5)	
 	
 
 

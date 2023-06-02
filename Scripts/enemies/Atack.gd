@@ -6,6 +6,7 @@ extends EnemyState
 # ####################
 
 func enter(_msg := {}) -> void:
+	print("enemy fsm: DIRECT ATTACK")
 	pass
 
 @warning_ignore("unused_parameter")	

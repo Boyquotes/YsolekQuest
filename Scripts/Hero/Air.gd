@@ -17,6 +17,11 @@ func enter(msg := {}) -> void:
 
 func physics_update(delta: float) -> void:
 	
+	if player.is_on_floor():
+		if gv.Hero_is_paused == true:
+			state_machine.transition_to("Idle")
+			return	
+	
 	if Input.is_action_pressed("ui_right"):
 		#gv.Hero_direction = Vector2.RIGHT
 		player.velocity.x = player.speed

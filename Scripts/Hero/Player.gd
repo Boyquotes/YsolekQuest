@@ -1,7 +1,9 @@
 
-# #################
-# # PLAYER.SCRIPT #
-# #################
+
+
+# |#################|
+# |# PLAYER.SCRIPT #|
+# |#################|
 
 
 class_name Hero
@@ -20,9 +22,10 @@ var turn:bool = true
 var weapon : Sprite2D
 var health:int = 100
 const health_max:int = 100
-var gold_amount:int = 0
+
 
 signal player_stats_changed
+signal bomb_hit_me
 
 
 func _ready():
@@ -32,13 +35,12 @@ func _ready():
 	set_process_input(true)
 	weapon = get_node("Torso/arm_r/Gun2")
 	emit_signal("player_stats_changed", self)
-	print("Player ready ...") 
+	print("Hero: ready ...") 
 		
 
 func _physics_process(_delta):
-	gv.Hero_pos_x = int(position.x)
-	gv.Hero_pos_y = int(position.y)
-	gv.Hero_global_position = global_position  # org:position
+	gv.Hero_global_position = global_position
+	gv.Hero_local_position = position
 	if position.x < -10:
 		position.x = 50
 	if gun_fire == true:
@@ -47,6 +49,12 @@ func _physics_process(_delta):
 		else:	
 			position.x += 3
 		gun_fire = false
+
+	if is_on_wall():
+		gv.Hero_is_on_wall = true
+	else:
+		gv.Hero_is_on_wall = false
+
 	
 
 func _process(_delta: float) -> void:
@@ -55,25 +63,27 @@ func _process(_delta: float) -> void:
 	
 func _on_gun_2_fire() -> void:
 	gun_fire = true
-	print("player: shoot")
+	print("Hero: me shoot")
 
 		
 func _on_idle_turn(value):
 	turn = value
 
 func hit():
-	print("player: enemies hit me by bullet!") 
+	print("Hero: enemies hit me by bullet!") 
 	if health > 0:
 		health -= 10
 	
-func _on_coin_get_coin(amount):
-	print("player: me grab " + str(amount) + " gold coin") 
-	gold_amount += amount
 
-func _on_explosive_2_get_coin_route(amount):
-	print("player: me grab " + str(amount) + " gold coin") 
-	gold_amount += amount
+func _on_player_area_area_entered(area: Area2D) -> void:
+	print("PlayerArea hit by: " + area.name) 
 
+func bomb_explode():
+	if health > 0:
+		health -= 25	
+	print("Hero: enemies hit me by drone big bomb!")
+	
+	gv.fsm.transition_to("Hit_bomb")
 
 
 # #################
@@ -166,6 +176,12 @@ func _on_explosive_2_get_coin_route(amount):
 		#weapon.global_rotation += 0.01
 		#print_debug(mpath)  
 		#weapon.global_rotation = -0.01 + (mpath	*0.01)
+
+
+
+
+
+
 
 
 

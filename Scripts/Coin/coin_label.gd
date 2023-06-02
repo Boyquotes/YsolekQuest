@@ -1,5 +1,5 @@
 extends Label
 
 func _process(_delta):
-	text = "%s" % [get_node("../../Player").gold_amount] 
+	text = "%s" % [gv.Hero_gold] + " złoty"
 

@@ -1,6 +1,6 @@
 extends Area2D
 
-@export var speed = 3200
+@export var speed = 4200
 var hit:bool = false
 var bulas:String
 
@@ -8,8 +8,8 @@ func _ready():
 	$BulletCrash.stop()
 	$BulletCrash.visible = false
 	hit = false
+	print("Player bullet name: " +self.name)
 	
-
 func _physics_process(delta):
 	if hit == false:
 		position += transform.x * speed * delta

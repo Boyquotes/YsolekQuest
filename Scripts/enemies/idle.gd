@@ -14,7 +14,7 @@ func enter(_msg := {}) -> void:
 	get_node("../../snd_fall").stop()
 	get_node("../../AnimationPlayer").stop()
 	get_node("../../AnimationPlayer").play("idle")
-	print("enemy: IDLE")
+	print("enemy fsm: IDLE")
 		
  
 @warning_ignore("unused_parameter")	
@@ -23,28 +23,51 @@ func physics_update(delta: float) -> void:
 		enemy.previous_state = gv.enemy_fsm.estate.name
 		estate_machine.transition_to("Air")
 		return
-				
+		
+	# print("XXXXXXXXX: " + str(int(enemy.global_position.distance_to(gv.Hero_global_position))))
+		
+
+	# TURN LEFT: player is on left side
+	# if gv.Hero_global_position.x + enemy.change_direction_distance < enemy.global_position.x:
+	if gv.Hero_global_position.x < enemy.global_position.x:
+		if enemy.direction == "R":	
+			enemy.scale.x = enemy.scale.y * 1
+			enemy.direction = "L"
+	
+	# TURN RIGHT: player is on right side
+	if gv.Hero_global_position.x > enemy.global_position.x:
+		if enemy.direction == "L":
+			enemy.scale.x = enemy.scale.y * -1
+			enemy.direction = "R"
+	
+	# SEE PLAYER:					
+	if 	enemy.see_Player == true:		
+		if enemy.first_hero_catch == false:
+			emit_signal("first_hero_catch")
+			enemy.first_hero_catch = true
+			print("enemy: First time see profesor")
+			get_node("../../snd_first_see").play()
+			
+	# ESCAPE:		
+	if enemy.global_position.distance_to(gv.Hero_global_position) <= enemy.contact_distance:
+		if get_node("../../Say").visible == false:
+			if enemy.direction == "R":
+				enemy.previous_state = gv.enemy_fsm.estate.name
+				estate_machine.transition_to("Walk_Left")
+			if enemy.direction == "L":
+				enemy.previous_state = gv.enemy_fsm.estate.name
+				estate_machine.transition_to("Walk_Right")	
+
 					
-	if ray_cast.is_colliding():
-		if ray_cast.get_collider().name == "Player":
-			enemy.player_collision_point = ray_cast.get_collision_point()
-			
-			if enemy.first_hero_catch == false:
-				emit_signal("first_hero_catch")
-				enemy.first_hero_catch = true
-				print("enemy: First time see profesor")
-				get_node("../../snd_first_see").play()
-			
-			if enemy.global_position.distance_to(enemy.player_collision_point) < enemy.contact_distance:
-				if get_node("../../Say").visible == false:
-					enemy.previous_state = gv.enemy_fsm.estate.name
-					estate_machine.transition_to("Walk_Right")
-							
-			# print(str(int(enemy.global_position.distance_to
-			# (enemy.player_collision_point))))
-						
-		else:
-			print("enemy: ray hit --> " + ray_cast.get_collider().name)	
+	# WALK LEFT				
+	if enemy.global_position.distance_to(gv.Hero_global_position) >= enemy.follow_distance:
+		if get_node("../../Say").visible == false:
+			if enemy.direction == "R":
+				enemy.previous_state = gv.enemy_fsm.estate.name
+				estate_machine.transition_to("Walk_Right")
+			if enemy.direction == "L":
+				enemy.previous_state = gv.enemy_fsm.estate.name
+				estate_machine.transition_to("Walk_Left")			
 		
 	
 	
@@ -52,6 +75,46 @@ func _on_enemy_somebody_hitme() -> void:
 	if gv.enemy_fsm.estate.name != "Hit":
 		enemy.previous_state = gv.enemy_fsm.estate.name
 	estate_machine.transition_to("Hit")
+		
+
+#	print("XXXXXXXXX: " + str(int(enemy.global_position.distance_to(gv.Hero_global_position))))
+			# (enemy.player_collision_point))))
+						
+	#else:
+		#pass
+		#print("enemy: ray hit --> " + ray_cast.get_collider().name)	
+	
+
+
+
+
+
+#if ray_cast.is_colliding():
+#		if ray_cast.get_collider().name == "Player":
+#			enemy.player_collision_point = ray_cast.get_collision_point()
+#
+#			if enemy.first_hero_catch == false:
+#				emit_signal("first_hero_catch")
+#				enemy.first_hero_catch = true
+#				print("enemy: First time see profesor")
+#				get_node("../../snd_first_see").play()
+#
+#			if enemy.global_position.distance_to(enemy.player_collision_point) < enemy.contact_distance:
+#				if get_node("../../Say").visible == false:
+#					enemy.previous_state = gv.enemy_fsm.estate.name
+#					estate_machine.transition_to("Walk_Right")
+#
+#			# print(str(int(enemy.global_position.distance_to
+#			# (enemy.player_collision_point))))
+#
+#		else:
+#			pass
+#			#print("enemy: ray hit --> " + ray_cast.get_collider().name)	
+#
+#
+#
+		
+		
 		
 # func _on_say_it_was_shown() -> void:
 # 	print("_on_say_it_was_shown()")

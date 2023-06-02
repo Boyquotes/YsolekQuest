@@ -3,6 +3,7 @@ extends Node
 var current_scene = null
 
 @onready var fsm:StateMachine
+var Hero_gold:int = 0
 var Hero_pos_x:int = 0
 var Hero_pos_y:int = 0
 var Hero_local_position:Vector2
@@ -11,11 +12,16 @@ var Hero_state:String = ""
 var Hero_direction = Vector2.RIGHT
 var Hero_is_on_floor:bool = false
 var Hero_is_on_wall:bool = false
+var Hero_is_paused:bool = false
 
 @onready var enemy_fsm:EnemyStateMachine
 var Enemy_position:Vector2
 var Enemy_global_position:Vector2
 var Enemy_direction = Vector2.RIGHT
+
+# var Drone1_position:Vector2
+# var Drone1_global_position:Vector2
+# var Drone1_on_position:bool = false
 
 @onready var player25D_fsm:P25StateMachine
 var Player25_position:Vector3

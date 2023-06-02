@@ -14,5 +14,5 @@ func _process(delta):
 func _physics_process(_delta):	
 	text = str(enemy.health)
 	position.x = gv.Enemy_position.x
-	position.y = gv.Enemy_position.y - 90
+	position.y = gv.Enemy_position.y - 150
 	

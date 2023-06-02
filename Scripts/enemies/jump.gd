@@ -6,7 +6,7 @@ extends EnemyState
 
 func enter(_msg := {}) -> void:
 	get_node("../../AnimationPlayer").stop()
-	print("enemy: AIR")
+	print("enemy fsm: AIR")
 
 @warning_ignore("unused_parameter")	
 func physics_update(delta: float) -> void:

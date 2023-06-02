@@ -1,11 +1,12 @@
 extends EnemyState
 
 # ####################
-# # DEATH    .SCRIPT #
+# # DEATH .SCRIPT #
 # ####################
 
 func enter(_msg := {}) -> void:
-	pass
+	print("enemy fsm: THEY KILL ME")
+	
 
 @warning_ignore("unused_parameter")	
 func physics_update(delta: float) -> void:

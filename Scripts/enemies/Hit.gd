@@ -4,10 +4,20 @@ extends EnemyState
 # # HIT       SCRIPT #
 # ####################
 
+@onready var snd_player:AudioStreamPlayer2D = get_node("../../hurt_player")
+#@onready var snd_player:AudioStreamPlayer2D = get_node("../../hurt_player")
+
+
 func enter(_msg := {}) -> void:
 	get_node("../../AnimationPlayer").stop()
 	get_node("../../AnimationPlayer").play("hitme")
-	print("enemy: THEY HIT ME")
+	print("enemy fsm: THEY HIT ME")
+	#if get_node("../../Snd_hit1").playing != true:
+			#get_node("../../Snd_hit1").play()
+	
+	snd_player.stream = enemy.hurt_sounds[randi() % len(enemy.hurt_sounds)]
+	if snd_player.playing != true:
+		snd_player.play()		
 	
 
 @warning_ignore("unused_parameter")	

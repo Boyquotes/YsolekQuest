@@ -7,6 +7,10 @@ func physics_update(delta: float) -> void:
 	if not player.is_on_floor():
 		state_machine.transition_to("Air")
 		return
+		
+	if gv.Hero_is_paused == true:
+		state_machine.transition_to("Idle")
+		return		
 
 	var input_direction_x: float = (
 		Input.get_action_strength("ui_right")

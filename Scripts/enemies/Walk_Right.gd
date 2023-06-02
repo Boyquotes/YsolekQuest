@@ -12,13 +12,14 @@ var stop:bool = false
 func enter(_msg := {}) -> void:
 	get_node("../../AnimationPlayer").stop()
 	enemy.scale.x = enemy.scale.y * -1
+	enemy.direction = "R"
 	get_node("../../AnimationPlayer").play("walk")
 	#timer = Timer.new()
 	#add_child(timer)
 	#timer.set_one_shot(true)
 	#timer.set_wait_time(1)
 	#timer.connect("timeout",  _timer_timeout)
-	print("enemy: WALK RIGHT")
+	print("enemy fsm: WALK RIGHT")
 	
 func _timer_timeout():
 	pass
@@ -33,27 +34,32 @@ func physics_update(delta: float) -> void:
 		
 	if get_node("../../snd_walk").playing != true:
 			get_node("../../snd_walk").play()
+			
 		
-	if gv.fsm.state.name == "Idle" or gv.fsm.state.name == "target_up" or gv.fsm.state.name == "target_down":
+		
+	#if gv.fsm.state.name == "Idle" or gv.fsm.state.name == "target_up" or gv.fsm.state.name == "target_down":
 		#timer.start()
 		#if gv.Enemy_direction == Vector2.RIGHT:
 		#if is_equal_approx(player_distance, enemy.contact_distance):
-		if player_distance > enemy.contact_distance + 500:
-			if gv.Hero_pos_x + enemy.change_direction_distance < enemy.position.x:
-				enemy.scale.x = enemy.scale.y * 1
-			if gv.Hero_pos_x - enemy.change_direction_distance > enemy.position.x:
-				enemy.scale.x = enemy.scale.y * -1
+	if player_distance > enemy.contact_distance + 500:
+		# if gv.Hero_pos_x + enemy.change_direction_distance < enemy.position.x:
+		# 	enemy.scale.x = enemy.scale.y * 1
+		# 	enemy.direction = "L"
+		# if gv.Hero_pos_x - enemy.change_direction_distance > enemy.position.x:
+		# 	enemy.scale.x = enemy.scale.y * -1
+		# 	enemy.direction = "R"
 
-			get_node("../../AnimationPlayer").stop()
-			enemy.previous_state = gv.enemy_fsm.estate.name
-			estate_machine.transition_to("idle")	
-							
-		
+		get_node("../../AnimationPlayer").stop()
+		enemy.previous_state = gv.enemy_fsm.estate.name
+		estate_machine.transition_to("idle")	
+
+
 	if enemy.is_on_wall():
 		enemy.previous_state = gv.enemy_fsm.estate.name
 		get_node("../../AnimationPlayer").stop()
-		print("enemy: stop on wall going right")
-		estate_machine.transition_to("idle")
+		print("enemy2: stop on wall going right")
+		estate_machine.transition_to("Jump_right")	
+	
 		
 	enemy.move_and_slide()		
 		

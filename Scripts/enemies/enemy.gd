@@ -10,21 +10,25 @@ extends CharacterBody2D
 const max_speed:float = 300.0
 @export var speed:float = max_speed
 # Vertical acceleration in pixel per second squared.
-@export var gravity:float = 700.0
+@export var gravity:float = 2000.0
 # Vertical speed applied when jumping.
 @export var jump_impulse:float = 1200.0
 
 var particles_res:Resource = preload("res://Scenes/Enemies/hit_particles.tscn")
 
-var Head_hit1_img = preload("res://Assets/Enemy/monster_1/enemy_head1.png")
-var Head_hit2_img = preload("res://Assets/Enemy/monster_1/enemy_head2.png")
-var Head_hit3_img = preload("res://Assets/Enemy/monster_1/enemy_head3.png")
+var Head_hit1_img:CompressedTexture2D = preload("res://Assets/Enemy/monster_1/enemy_head1.png")
+var Head_hit2_img:CompressedTexture2D = preload("res://Assets/Enemy/monster_1/enemy_head2.png")
+var Head_hit3_img:CompressedTexture2D = preload("res://Assets/Enemy/monster_1/enemy_head3.png")
 var texture_nr:int = 0
+
+@onready var hurt_sounds = [load("res://Assets/Sounds/Enemy2/Hurt1.wav"),
+	load("res://Assets/Sounds/Enemy2/Hurt2.wav"),
+	load("res://Assets/Sounds/Enemy2/Hurt3.wav")]
 
 var screen_size : Vector2
 var gun_fire:bool = false
 
-var turn:String = "left"
+var direction:String = "L"
 var move_left:bool = false
 var move_right:bool = false
 
@@ -34,7 +38,11 @@ var health:int = 100
 const health_max:int = 100
 var gold_amount:int = 0
 
-const contact_distance:float = 600.0
+var on_screen:bool = false
+var see_Player:bool = false
+
+const contact_distance:float = 1100.0
+const follow_distance:float = 2000.0
 const change_direction_distance:float = 200.0
 
 var first_hero_catch:bool = false
@@ -44,23 +52,38 @@ var head:Node
 var collision:KinematicCollision2D 
 
 signal somebody_hitme
+signal enemy2_death
 var player_collision_point:Vector2
 
+var drone:CharacterBody2D
+
+#var flying_drone:Resource = preload("res://Scenes/Enemies/Flying _drone/Flying_drone.tscn")
 
 
 func _ready():
 	gv.enemy_fsm = $EnemyStateMachine
+	drone = get_parent().get_node("Flying_drone")
 	screen_size = get_viewport_rect().size
 	gold_amount = randi_range(1,1125)
 	head = get_node("CanvasGroup/Torso/Head")
 	previous_state = ""
 	gv.Enemy_position = position
 	gv.Enemy_global_position = global_position
-	print("Enemy ready ...")
-	print("Player distance: " + str(int(position.distance_to(gv.Hero_global_position))))
+	drone.connect('on_boss_position', _drone_on_me_position)
+	scale.x = scale.y * 1
+	direction = "L"
+	print("Enemy: ready ...")
+	print("Enemy: distance to Hero: " + str(int(position.distance_to(gv.Hero_global_position))))
 	#print("Enemy state:" + gv.enemy_fsm.estate.name)
 	#$Say.visible = false 
 	
+
+func _drone_on_me_position():
+	previous_state = gv.enemy_fsm.estate.name
+	gv.enemy_fsm.transition_to("Release_drone")
+	print("Enemy: reload drone bomb")
+	
+
 
 func _process(_delta: float) -> void:
 	pass
@@ -88,13 +111,14 @@ func hit():
 	_particle.emitting = true
 	get_tree().current_scene.add_child(_particle)
 		
-	if turn == "left":
+	if direction == "L":
 		position.x += 20
-	if turn == "right":
+	if direction == "R":
 		position.x -= 20	
 	if health > 0:
 		health -= 10
 	if health <= 0:
+		emit_signal("enemy2_death")
 		queue_free()  		
 
 	if health in range(50,71):
@@ -133,7 +157,21 @@ func _on_recover_health_timeout() -> void:
 			texture_nr = 3
 			speed = max_speed * 0.4			
 
+func _on_eyes_range_body_entered(body: Node2D) -> void:
+	if body.name == "Player":
+		see_Player = true
+		print("Enemy: YES I see:  " + body.name + "  now")
 
+func _on_eyes_range_body_exited(body: Node2D) -> void:
+	if body.name == "Player":
+		see_Player = false
+		print("Enemy: NOT see:  " + body.name + "  now")
+
+func _on_visible_on_screen_notifier_2d_screen_entered() -> void:
+	on_screen = true
+
+func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
+	on_screen = false
 
 
 
@@ -177,3 +215,12 @@ func _on_recover_health_timeout() -> void:
 				
 				
 				
+
+
+
+
+
+
+
+
+

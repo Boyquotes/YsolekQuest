@@ -10,7 +10,7 @@
 z_index = -1
 position = Vector2(231.388, -260.65)
 rotation = -1.74781
-scale = Vector2(1.76134, 1.76134)
+scale = Vector2(2.2, 2.2)
 texture = ExtResource("1_jeedp")
 offset = Vector2(81.2121, 7.83571)
 script = ExtResource("2_b2icd")
@@ -39,5 +39,9 @@ texture = ExtResource("4_yvk7i")
 position = Vector2(-123.77, -24.9809)
 scale = Vector2(0.56775, 0.56775)
 stream = ExtResource("5_282g4")
+
+[node name="Shells_spawn" type="Marker2D" parent="."]
+position = Vector2(42.6593, -33.6447)
+gizmo_extents = 25.5
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
