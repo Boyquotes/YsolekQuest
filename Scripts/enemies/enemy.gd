@@ -57,25 +57,44 @@ var player_collision_point:Vector2
 
 var drone:CharacterBody2D
 
-#var flying_drone:Resource = preload("res://Scenes/Enemies/Flying _drone/Flying_drone.tscn")
+@onready var flying_drone:Resource = preload("res://Scenes/Enemies/Flying _drone/Flying_drone.tscn")
 
 
 func _ready():
 	gv.enemy_fsm = $EnemyStateMachine
-	drone = get_parent().get_node("Flying_drone")
+	#drone = get_parent().get_node("Flying_drone")
 	screen_size = get_viewport_rect().size
 	gold_amount = randi_range(1,1125)
 	head = get_node("CanvasGroup/Torso/Head")
 	previous_state = ""
 	gv.Enemy_position = position
 	gv.Enemy_global_position = global_position
-	drone.connect('on_boss_position', _drone_on_me_position)
 	scale.x = scale.y * 1
 	direction = "L"
 	print("Enemy: ready ...")
 	print("Enemy: distance to Hero: " + str(int(position.distance_to(gv.Hero_global_position))))
 	#print("Enemy state:" + gv.enemy_fsm.estate.name)
-	#$Say.visible = false 
+	#$Say.visible = false
+	var Drone2:CharacterBody2D = flying_drone.instantiate()
+	#get_tree().root.add_child(Drone2)
+	get_tree().root.add_child.call_deferred(Drone2)
+	Drone2.connect('on_boss_position', _drone_on_me_position)
+	Drone2.connect('on_kill', _drone_on_kill)
+	#boom.connect('early_hit', _on_bomb_early_hit)
+	Drone2.visible = true
+	print("Drone2: ready " + Drone2.name)
+
+	
+
+func _drone_on_kill():
+	print("Enemy: they destroy my drone !")	
+	await get_tree().create_timer(2.5).timeout 
+	var Drone2:CharacterBody2D = flying_drone.instantiate()
+	get_tree().root.add_child.call_deferred(Drone2)
+	Drone2.connect('on_boss_position', _drone_on_me_position)
+	Drone2.connect('on_kill', _drone_on_kill)
+	Drone2.visible = true
+	print("Next Drone: ready " + Drone2.name)
 	
 
 func _drone_on_me_position():

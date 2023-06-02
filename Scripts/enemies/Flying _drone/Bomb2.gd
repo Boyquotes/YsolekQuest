@@ -4,14 +4,12 @@ var speed:int = 350
 
 var drone:CharacterBody2D
 var bomb_hit_target:bool = false
-#var collision:KinematicCollision2D
-#var collider_name:String = ""
 var drone_on_position:bool = false
 
 signal early_hit
 
 func _ready():
-	drone = get_parent().get_node("Stage1/Flying_drone")
+	drone = get_parent().get_node("Flying_drone")
 	position.x = drone.global_position.x
 	position.y = drone.global_position.y + 50
 	$Explosion.stop()
@@ -35,6 +33,7 @@ func _physics_process(delta):
 							
 	
 func explode():
+	$snd_fall.stop()
 	bomb_hit_target = true
 	$BombSprite.visible = false
 	$Explosion.visible = true
@@ -42,6 +41,7 @@ func explode():
 	$Explosion.play("explode")
 	$snd_explode.play()
 	
+# bomb is on hit target position	
 func _on_hit_position():
 	drone_on_position = true
 	$AnimationPlayer.stop(true)
@@ -49,10 +49,9 @@ func _on_hit_position():
 	$snd_fall.play()
 	print("Bomb is on target position")
 	
-
+# if bomb hit Area2D
 func _on_area_entered(area):
 	print("Bomb hit Area2D: " + area.name)
-	$snd_fall.stop()
 	$CollisionShape2D.set_deferred("disabled", true)
 	if area.name.left(6) == "Bullet":
 		emit_signal("early_hit")
@@ -60,9 +59,9 @@ func _on_area_entered(area):
 	if area.has_method("bomb_explode"):
 		area.bomb_explode()	
 
+# if bomb hit Body2D
 func _on_body_entered(body):
 	print("Bomb hit Body: " + body.name)
-	$snd_fall.stop()
 	bomb_hit_target = true
 	speed = randi_range(500,600)
 	$CollisionShape2D.set_deferred("disabled", true)
@@ -73,12 +72,13 @@ func _on_body_entered(body):
 
 # If bullet hit bomb
 func _on_bullet_hits_area_entered(area: Area2D) -> void:
-	print("Bomb hit Area2D: " + area.name)
-	$snd_fall.stop()
 	$CollisionShape2D.set_deferred("disabled", true)
 	if area.name.left(6) == "Bullet":
-		emit_signal("early_hit")
-	explode()
+		print("Bomb:" + area.name + " hit me and finish" )
+		explode()
+		if drone_on_position == false:
+			emit_signal("early_hit")
+	
 	
 func _on_explosion_animation_finished() -> void:
 	queue_free()

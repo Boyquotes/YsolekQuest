@@ -20,10 +20,13 @@ var current_state : int = States.START
 signal on_hit_position
 signal on_boss_position
 signal on_base_position
+signal on_kill
 
 var screen_size : Vector2
 var enemy2:Enemy
 var bomb:Resource = preload("res://Scenes/Enemies/Flying _drone/Bomb2.tscn")
+
+var boom:Area2D
 
 func _ready():
 	speed = randi_range(200,350)
@@ -32,10 +35,13 @@ func _ready():
 	$Drone_explosion.stop()
 	$Drone_explosion.visible = false
 	screen_size = get_viewport_rect().size
-	enemy2 = get_parent().get_node("Enemy")
+	# enemy2 = get_parent().get_node("Enemy")
+	enemy2 = get_tree().root.get_node("Stage1/Enemy")
 	$drone_snd.play()
+	position.x = enemy2.global_position.x
+	position.y = enemy2.global_position.y - 200
 	print("Flying drone: ready ...") 
-
+	
 func _physics_process(_delta):
 	match current_state:
 		States.STOP:
@@ -187,6 +193,7 @@ func _on_drone_bullet_hit_me() -> void:
 
 func _on_explosion_animation_finished() -> void:
 	$drone_snd.stop()
+	emit_signal("on_kill")
 	print("Drone: player kill drone")
 	queue_free()
 		
@@ -197,6 +204,7 @@ func _on_drone_explosion_animation_finished() -> void:
 
 func _on_bomb_early_hit() -> void:
 	$drone_snd.stop()
+	boom.get_node("snd_fall").stop()
 	print("Drone: bullet hit bomb! and kill drone.")
 	$Drone/DroneSprite.visible = false
 	$Drone_explosion.visible = true
@@ -212,9 +220,9 @@ func _on_bomb_drop_bomb() -> void:
 	current_state = States.GO_BOSS
 	print("Drone: go to boss ...") 
 
-# create new bomb
+# instantiate create new bomb
 func _on_load_bomb_timeout() -> void:
-	var boom:Area2D = bomb.instantiate()
+	boom = bomb.instantiate()
 	get_tree().root.add_child(boom)
 	boom.connect('early_hit', _on_bomb_early_hit)
 	print("Bomb: ready " + boom.name) 

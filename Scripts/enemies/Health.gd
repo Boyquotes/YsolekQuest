@@ -11,6 +11,6 @@ func _ready():
 func _physics_process(delta):
 	value = enemy.health
 	position.x = gv.Enemy_position.x
-	position.y = gv.Enemy_position.y - 130
+	position.y = gv.Enemy_position.y - 140
 	
 
