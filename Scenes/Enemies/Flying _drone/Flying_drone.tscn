@@ -1,55 +1,55 @@
 [gd_scene load_steps=55 format=3 uid="uid://ben482wt7pvd4"]
 
-[ext_resource type="Script" path="res://Scripts/enemies/Flying _drone/Flying_drone_node.gd" id="1_ywl12"]
-[ext_resource type="Texture2D" uid="uid://yys078cup8yd" path="res://Assets/Objects/barHorizontal_red3.png" id="2_3ysx4"]
-[ext_resource type="Texture2D" uid="uid://c1txs3rc7suh6" path="res://Assets/Objects/barHorizontal_red2.png" id="3_4yc0f"]
-[ext_resource type="Script" path="res://Scripts/enemies/Flying _drone/Health.gd" id="4_7g13s"]
-[ext_resource type="Script" path="res://Scripts/enemies/Flying _drone/HitPoints.gd" id="5_vsn3v"]
-[ext_resource type="Script" path="res://Scripts/enemies/Flying _drone/Flying_drone.gd" id="6_pga21"]
-[ext_resource type="Texture2D" uid="uid://bb3k7f0f6f4co" path="res://Assets/Enemy/Dron2/0001.png" id="7_dav2o"]
-[ext_resource type="Texture2D" uid="uid://dyewapfg8cpcg" path="res://Assets/Enemy/Dron2/0002.png" id="8_tvh2p"]
-[ext_resource type="Texture2D" uid="uid://crnc00w7biu02" path="res://Assets/Enemy/Dron2/0003.png" id="9_vx1hk"]
-[ext_resource type="Texture2D" uid="uid://ctal0xbkhqjuv" path="res://Assets/Enemy/Dron2/0004.png" id="10_cjs1m"]
-[ext_resource type="Texture2D" uid="uid://dfsrbbrha7k1j" path="res://Assets/Enemy/Dron2/0005.png" id="11_6onta"]
-[ext_resource type="Texture2D" uid="uid://bou7v3gj5kwia" path="res://Assets/Enemy/Dron2/0006.png" id="12_apvtx"]
-[ext_resource type="Texture2D" uid="uid://cw50ox0dlimrb" path="res://Assets/Enemy/Dron2/0007.png" id="13_ey08s"]
-[ext_resource type="Texture2D" uid="uid://c4dkq1qm408t4" path="res://Assets/Enemy/Dron2/0008.png" id="14_wrg8p"]
-[ext_resource type="Texture2D" uid="uid://ojucvawu0k3y" path="res://Assets/Enemy/Dron2/0009.png" id="15_yc43h"]
-[ext_resource type="Texture2D" uid="uid://qxyk2l3wxwne" path="res://Assets/Enemy/Dron2/0010.png" id="16_i74v8"]
-[ext_resource type="Texture2D" uid="uid://ye4kkaiu14d7" path="res://Assets/Enemy/Dron2/0011.png" id="17_88r2v"]
-[ext_resource type="Texture2D" uid="uid://cil3o6r10o6wa" path="res://Assets/Enemy/Dron2/0012.png" id="18_2vgsx"]
-[ext_resource type="Texture2D" uid="uid://drp1y2a8wj1gh" path="res://Assets/Enemy/Dron2/0013.png" id="19_jm83i"]
-[ext_resource type="Texture2D" uid="uid://bhy6fj4w3ugy2" path="res://Assets/Enemy/Dron2/0014.png" id="20_pw1an"]
-[ext_resource type="Texture2D" uid="uid://c6ah1a5epxugp" path="res://Assets/Enemy/Dron2/0015.png" id="21_b50kg"]
-[ext_resource type="Texture2D" uid="uid://dm825qxoejdwt" path="res://Assets/Enemy/Dron2/0016.png" id="22_ohg2g"]
-[ext_resource type="Texture2D" uid="uid://cqcb4jrbl8ugq" path="res://Assets/Enemy/Dron2/0017.png" id="23_ofwgb"]
-[ext_resource type="Texture2D" uid="uid://be05l44so1tcy" path="res://Assets/Enemy/Dron2/0018.png" id="24_8nhkg"]
-[ext_resource type="Texture2D" uid="uid://bninjt4qh63w5" path="res://Assets/Enemy/Dron2/0019.png" id="25_su7k2"]
-[ext_resource type="Texture2D" uid="uid://blqslmc43jhmu" path="res://Assets/Enemy/Dron2/0020.png" id="26_y3duy"]
-[ext_resource type="AudioStream" uid="uid://b2v6my4asjc7e" path="res://Assets/Sounds/flying_drone_2.mp3" id="27_8ran4"]
-[ext_resource type="Texture2D" uid="uid://tv4cn7h6rqna" path="res://Assets/Explosions/explosion3/explo-01.png" id="28_nfaul"]
-[ext_resource type="Texture2D" uid="uid://cpfvetftsl17e" path="res://Assets/Explosions/explosion3/explo-02.png" id="29_lsm02"]
-[ext_resource type="Texture2D" uid="uid://b3gmkos3ug5mb" path="res://Assets/Explosions/explosion3/explo-03.png" id="30_m8ssf"]
-[ext_resource type="Texture2D" uid="uid://bcc7b6ysu3qso" path="res://Assets/Explosions/explosion3/explo-04.png" id="31_4sdbb"]
-[ext_resource type="Texture2D" uid="uid://bc2xkw3u6h8er" path="res://Assets/Explosions/explosion3/explo-05.png" id="32_xg310"]
-[ext_resource type="Texture2D" uid="uid://dklf21jjfhnuf" path="res://Assets/Explosions/explosion3/explo-06.png" id="33_3cisy"]
-[ext_resource type="Texture2D" uid="uid://cu1conop4nyc0" path="res://Assets/Explosions/explosion3/explo-07.png" id="34_78x6j"]
-[ext_resource type="Texture2D" uid="uid://fg15ykrm248y" path="res://Assets/Explosions/explosion3/explo-08.png" id="35_wbikj"]
-[ext_resource type="Texture2D" uid="uid://cbufqdkmb46rh" path="res://Assets/Explosions/explosion3/explo-09.png" id="36_a3asp"]
-[ext_resource type="Texture2D" uid="uid://c0gxvjci8gw0t" path="res://Assets/Explosions/explosion3/explo-10.png" id="37_p4vfa"]
-[ext_resource type="Texture2D" uid="uid://pl0fgdnvmxvl" path="res://Assets/Explosions/explosion3/explo-11.png" id="38_2alfj"]
-[ext_resource type="Texture2D" uid="uid://co6gvkfwp5o6m" path="res://Assets/Explosions/explosion3/explo-12.png" id="39_5v7j7"]
-[ext_resource type="Texture2D" uid="uid://ijjbykbh6gag" path="res://Assets/Explosions/explosion3/explo-13.png" id="40_l3s1o"]
-[ext_resource type="Texture2D" uid="uid://bh5b7k7f154nf" path="res://Assets/Explosions/explosion3/explo-14.png" id="41_ex0k8"]
-[ext_resource type="Texture2D" uid="uid://cbq2a45jadpxd" path="res://Assets/Explosions/explosion3/explo-15.png" id="42_iuwkn"]
-[ext_resource type="Texture2D" uid="uid://b28pr54771gyd" path="res://Assets/Explosions/explosion3/explo-16.png" id="43_e8qre"]
-[ext_resource type="AudioStream" uid="uid://ci4caw11nel83" path="res://Assets/Sounds/Explosion3.mp3" id="44_jxhj3"]
-[ext_resource type="Texture2D" uid="uid://g38b66cmwah5" path="res://Assets/Enemy/Dron2/explode/0001.png" id="45_303o8"]
-[ext_resource type="Texture2D" uid="uid://dv6m4kuhew0o2" path="res://Assets/Enemy/Dron2/explode/0002.png" id="46_cjmq3"]
-[ext_resource type="Texture2D" uid="uid://drq6gb407jaqm" path="res://Assets/Enemy/Dron2/explode/0003.png" id="47_c87mx"]
-[ext_resource type="Texture2D" uid="uid://4p8nj0yi23gl" path="res://Assets/Enemy/Dron2/explode/0004.png" id="48_asjwr"]
-[ext_resource type="Texture2D" uid="uid://bc7c7nh6vdy6q" path="res://Assets/Enemy/Dron2/explode/0005.png" id="49_yypvs"]
-[ext_resource type="Texture2D" uid="uid://6dk81ylj0dj7" path="res://Assets/Enemy/Dron2/explode/0006.png" id="50_15lwc"]
+[ext_resource type="Script" path="res://Scripts/enemies/Flying _drone/Flying_drone_node.gd" id="1_erywy"]
+[ext_resource type="Texture2D" uid="uid://yys078cup8yd" path="res://Assets/Objects/barHorizontal_red3.png" id="2_6k6ng"]
+[ext_resource type="Texture2D" uid="uid://c1txs3rc7suh6" path="res://Assets/Objects/barHorizontal_red2.png" id="3_0fr8g"]
+[ext_resource type="Script" path="res://Scripts/enemies/Flying _drone/Health.gd" id="4_as0vc"]
+[ext_resource type="Script" path="res://Scripts/enemies/Flying _drone/HitPoints.gd" id="5_riv24"]
+[ext_resource type="Script" path="res://Scripts/enemies/Flying _drone/Flying_drone.gd" id="6_1njf6"]
+[ext_resource type="Texture2D" uid="uid://bb3k7f0f6f4co" path="res://Assets/Enemy/Dron2/0001.png" id="7_unmav"]
+[ext_resource type="Texture2D" uid="uid://dyewapfg8cpcg" path="res://Assets/Enemy/Dron2/0002.png" id="8_j35xr"]
+[ext_resource type="Texture2D" uid="uid://crnc00w7biu02" path="res://Assets/Enemy/Dron2/0003.png" id="9_fkoy6"]
+[ext_resource type="Texture2D" uid="uid://ctal0xbkhqjuv" path="res://Assets/Enemy/Dron2/0004.png" id="10_ltt1u"]
+[ext_resource type="Texture2D" uid="uid://dfsrbbrha7k1j" path="res://Assets/Enemy/Dron2/0005.png" id="11_m5l8o"]
+[ext_resource type="Texture2D" uid="uid://bou7v3gj5kwia" path="res://Assets/Enemy/Dron2/0006.png" id="12_s80jb"]
+[ext_resource type="Texture2D" uid="uid://cw50ox0dlimrb" path="res://Assets/Enemy/Dron2/0007.png" id="13_4qj3o"]
+[ext_resource type="Texture2D" uid="uid://c4dkq1qm408t4" path="res://Assets/Enemy/Dron2/0008.png" id="14_3wj1l"]
+[ext_resource type="Texture2D" uid="uid://ojucvawu0k3y" path="res://Assets/Enemy/Dron2/0009.png" id="15_6e4ce"]
+[ext_resource type="Texture2D" uid="uid://qxyk2l3wxwne" path="res://Assets/Enemy/Dron2/0010.png" id="16_3kdrp"]
+[ext_resource type="Texture2D" uid="uid://ye4kkaiu14d7" path="res://Assets/Enemy/Dron2/0011.png" id="17_e1n2r"]
+[ext_resource type="Texture2D" uid="uid://cil3o6r10o6wa" path="res://Assets/Enemy/Dron2/0012.png" id="18_28hkw"]
+[ext_resource type="Texture2D" uid="uid://drp1y2a8wj1gh" path="res://Assets/Enemy/Dron2/0013.png" id="19_doct8"]
+[ext_resource type="Texture2D" uid="uid://bhy6fj4w3ugy2" path="res://Assets/Enemy/Dron2/0014.png" id="20_bblu4"]
+[ext_resource type="Texture2D" uid="uid://c6ah1a5epxugp" path="res://Assets/Enemy/Dron2/0015.png" id="21_j28dp"]
+[ext_resource type="Texture2D" uid="uid://dm825qxoejdwt" path="res://Assets/Enemy/Dron2/0016.png" id="22_y5le0"]
+[ext_resource type="Texture2D" uid="uid://cqcb4jrbl8ugq" path="res://Assets/Enemy/Dron2/0017.png" id="23_tq6ur"]
+[ext_resource type="Texture2D" uid="uid://be05l44so1tcy" path="res://Assets/Enemy/Dron2/0018.png" id="24_t3ia0"]
+[ext_resource type="Texture2D" uid="uid://bninjt4qh63w5" path="res://Assets/Enemy/Dron2/0019.png" id="25_ol4eh"]
+[ext_resource type="Texture2D" uid="uid://blqslmc43jhmu" path="res://Assets/Enemy/Dron2/0020.png" id="26_lwwly"]
+[ext_resource type="AudioStream" uid="uid://b2v6my4asjc7e" path="res://Assets/Sounds/flying_drone_2.mp3" id="27_oin0s"]
+[ext_resource type="Texture2D" uid="uid://tv4cn7h6rqna" path="res://Assets/Explosions/explosion3/explo-01.png" id="28_cumjn"]
+[ext_resource type="Texture2D" uid="uid://cpfvetftsl17e" path="res://Assets/Explosions/explosion3/explo-02.png" id="29_xd7i7"]
+[ext_resource type="Texture2D" uid="uid://b3gmkos3ug5mb" path="res://Assets/Explosions/explosion3/explo-03.png" id="30_1h2wp"]
+[ext_resource type="Texture2D" uid="uid://bcc7b6ysu3qso" path="res://Assets/Explosions/explosion3/explo-04.png" id="31_vyxqx"]
+[ext_resource type="Texture2D" uid="uid://bc2xkw3u6h8er" path="res://Assets/Explosions/explosion3/explo-05.png" id="32_4u7t4"]
+[ext_resource type="Texture2D" uid="uid://dklf21jjfhnuf" path="res://Assets/Explosions/explosion3/explo-06.png" id="33_sqjef"]
+[ext_resource type="Texture2D" uid="uid://cu1conop4nyc0" path="res://Assets/Explosions/explosion3/explo-07.png" id="34_k2x33"]
+[ext_resource type="Texture2D" uid="uid://fg15ykrm248y" path="res://Assets/Explosions/explosion3/explo-08.png" id="35_d1g4j"]
+[ext_resource type="Texture2D" uid="uid://cbufqdkmb46rh" path="res://Assets/Explosions/explosion3/explo-09.png" id="36_kckax"]
+[ext_resource type="Texture2D" uid="uid://c0gxvjci8gw0t" path="res://Assets/Explosions/explosion3/explo-10.png" id="37_l1eim"]
+[ext_resource type="Texture2D" uid="uid://pl0fgdnvmxvl" path="res://Assets/Explosions/explosion3/explo-11.png" id="38_h5k7y"]
+[ext_resource type="Texture2D" uid="uid://co6gvkfwp5o6m" path="res://Assets/Explosions/explosion3/explo-12.png" id="39_i8p3e"]
+[ext_resource type="Texture2D" uid="uid://ijjbykbh6gag" path="res://Assets/Explosions/explosion3/explo-13.png" id="40_qsje5"]
+[ext_resource type="Texture2D" uid="uid://bh5b7k7f154nf" path="res://Assets/Explosions/explosion3/explo-14.png" id="41_wa4lv"]
+[ext_resource type="Texture2D" uid="uid://cbq2a45jadpxd" path="res://Assets/Explosions/explosion3/explo-15.png" id="42_fp046"]
+[ext_resource type="Texture2D" uid="uid://b28pr54771gyd" path="res://Assets/Explosions/explosion3/explo-16.png" id="43_kh4j4"]
+[ext_resource type="AudioStream" uid="uid://ci4caw11nel83" path="res://Assets/Sounds/Explosion3.mp3" id="44_1qv6k"]
+[ext_resource type="Texture2D" uid="uid://g38b66cmwah5" path="res://Assets/Enemy/Dron2/explode/0001.png" id="45_1c8a8"]
+[ext_resource type="Texture2D" uid="uid://dv6m4kuhew0o2" path="res://Assets/Enemy/Dron2/explode/0002.png" id="46_bvnhd"]
+[ext_resource type="Texture2D" uid="uid://drq6gb407jaqm" path="res://Assets/Enemy/Dron2/explode/0003.png" id="47_edpsh"]
+[ext_resource type="Texture2D" uid="uid://4p8nj0yi23gl" path="res://Assets/Enemy/Dron2/explode/0004.png" id="48_63byr"]
+[ext_resource type="Texture2D" uid="uid://bc7c7nh6vdy6q" path="res://Assets/Enemy/Dron2/explode/0005.png" id="49_i3cfu"]
+[ext_resource type="Texture2D" uid="uid://6dk81ylj0dj7" path="res://Assets/Enemy/Dron2/explode/0006.png" id="50_bl30e"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_shara"]
 size = Vector2(148, 42)
@@ -58,64 +58,64 @@ size = Vector2(148, 42)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("7_dav2o")
+"texture": ExtResource("7_unmav")
 }, {
 "duration": 1.0,
-"texture": ExtResource("8_tvh2p")
+"texture": ExtResource("8_j35xr")
 }, {
 "duration": 1.0,
-"texture": ExtResource("9_vx1hk")
+"texture": ExtResource("9_fkoy6")
 }, {
 "duration": 1.0,
-"texture": ExtResource("10_cjs1m")
+"texture": ExtResource("10_ltt1u")
 }, {
 "duration": 1.0,
-"texture": ExtResource("11_6onta")
+"texture": ExtResource("11_m5l8o")
 }, {
 "duration": 1.0,
-"texture": ExtResource("12_apvtx")
+"texture": ExtResource("12_s80jb")
 }, {
 "duration": 1.0,
-"texture": ExtResource("13_ey08s")
+"texture": ExtResource("13_4qj3o")
 }, {
 "duration": 1.0,
-"texture": ExtResource("14_wrg8p")
+"texture": ExtResource("14_3wj1l")
 }, {
 "duration": 1.0,
-"texture": ExtResource("15_yc43h")
+"texture": ExtResource("15_6e4ce")
 }, {
 "duration": 1.0,
-"texture": ExtResource("16_i74v8")
+"texture": ExtResource("16_3kdrp")
 }, {
 "duration": 1.0,
-"texture": ExtResource("17_88r2v")
+"texture": ExtResource("17_e1n2r")
 }, {
 "duration": 1.0,
-"texture": ExtResource("18_2vgsx")
+"texture": ExtResource("18_28hkw")
 }, {
 "duration": 1.0,
-"texture": ExtResource("19_jm83i")
+"texture": ExtResource("19_doct8")
 }, {
 "duration": 1.0,
-"texture": ExtResource("20_pw1an")
+"texture": ExtResource("20_bblu4")
 }, {
 "duration": 1.0,
-"texture": ExtResource("21_b50kg")
+"texture": ExtResource("21_j28dp")
 }, {
 "duration": 1.0,
-"texture": ExtResource("22_ohg2g")
+"texture": ExtResource("22_y5le0")
 }, {
 "duration": 1.0,
-"texture": ExtResource("23_ofwgb")
+"texture": ExtResource("23_tq6ur")
 }, {
 "duration": 1.0,
-"texture": ExtResource("24_8nhkg")
+"texture": ExtResource("24_t3ia0")
 }, {
 "duration": 1.0,
-"texture": ExtResource("25_su7k2")
+"texture": ExtResource("25_ol4eh")
 }, {
 "duration": 1.0,
-"texture": ExtResource("26_y3duy")
+"texture": ExtResource("26_lwwly")
 }],
 "loop": true,
 "name": &"default",
@@ -126,52 +126,52 @@ animations = [{
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("28_nfaul")
+"texture": ExtResource("28_cumjn")
 }, {
 "duration": 1.0,
-"texture": ExtResource("29_lsm02")
+"texture": ExtResource("29_xd7i7")
 }, {
 "duration": 1.0,
-"texture": ExtResource("30_m8ssf")
+"texture": ExtResource("30_1h2wp")
 }, {
 "duration": 1.0,
-"texture": ExtResource("31_4sdbb")
+"texture": ExtResource("31_vyxqx")
 }, {
 "duration": 1.0,
-"texture": ExtResource("32_xg310")
+"texture": ExtResource("32_4u7t4")
 }, {
 "duration": 1.0,
-"texture": ExtResource("33_3cisy")
+"texture": ExtResource("33_sqjef")
 }, {
 "duration": 1.0,
-"texture": ExtResource("34_78x6j")
+"texture": ExtResource("34_k2x33")
 }, {
 "duration": 1.0,
-"texture": ExtResource("35_wbikj")
+"texture": ExtResource("35_d1g4j")
 }, {
 "duration": 1.0,
-"texture": ExtResource("36_a3asp")
+"texture": ExtResource("36_kckax")
 }, {
 "duration": 1.0,
-"texture": ExtResource("37_p4vfa")
+"texture": ExtResource("37_l1eim")
 }, {
 "duration": 1.0,
-"texture": ExtResource("38_2alfj")
+"texture": ExtResource("38_h5k7y")
 }, {
 "duration": 1.0,
-"texture": ExtResource("39_5v7j7")
+"texture": ExtResource("39_i8p3e")
 }, {
 "duration": 1.0,
-"texture": ExtResource("40_l3s1o")
+"texture": ExtResource("40_qsje5")
 }, {
 "duration": 1.0,
-"texture": ExtResource("41_ex0k8")
+"texture": ExtResource("41_wa4lv")
 }, {
 "duration": 1.0,
-"texture": ExtResource("42_iuwkn")
+"texture": ExtResource("42_fp046")
 }, {
 "duration": 1.0,
-"texture": ExtResource("43_e8qre")
+"texture": ExtResource("43_kh4j4")
 }],
 "loop": false,
 "name": &"explode",
@@ -182,22 +182,22 @@ animations = [{
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("45_303o8")
+"texture": ExtResource("45_1c8a8")
 }, {
 "duration": 1.0,
-"texture": ExtResource("46_cjmq3")
+"texture": ExtResource("46_bvnhd")
 }, {
 "duration": 1.0,
-"texture": ExtResource("47_c87mx")
+"texture": ExtResource("47_edpsh")
 }, {
 "duration": 1.0,
-"texture": ExtResource("48_asjwr")
+"texture": ExtResource("48_63byr")
 }, {
 "duration": 1.0,
-"texture": ExtResource("49_yypvs")
+"texture": ExtResource("49_i3cfu")
 }, {
 "duration": 1.0,
-"texture": ExtResource("50_15lwc")
+"texture": ExtResource("50_bl30e")
 }],
 "loop": false,
 "name": &"explode",
@@ -206,7 +206,7 @@ animations = [{
 
 [node name="Flying_drone" type="CharacterBody2D"]
 z_index = 3
-script = ExtResource("1_ywl12")
+script = ExtResource("1_erywy")
 
 [node name="Health" type="TextureProgressBar" parent="."]
 top_level = true
@@ -215,9 +215,9 @@ offset_top = -60.0
 offset_right = 145.0
 offset_bottom = -20.0
 scale = Vector2(0.566262, 0.566262)
-texture_under = ExtResource("2_3ysx4")
-texture_progress = ExtResource("3_4yc0f")
-script = ExtResource("4_7g13s")
+texture_under = ExtResource("2_6k6ng")
+texture_progress = ExtResource("3_0fr8g")
+script = ExtResource("4_as0vc")
 
 [node name="HitPoints" type="Label" parent="."]
 top_level = true
@@ -227,10 +227,10 @@ offset_right = -18.0
 offset_bottom = -61.0
 theme_override_font_sizes/font_size = 25
 text = "100"
-script = ExtResource("5_vsn3v")
+script = ExtResource("5_riv24")
 
 [node name="Drone" type="CharacterBody2D" parent="."]
-script = ExtResource("6_pga21")
+script = ExtResource("6_1njf6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Drone"]
 position = Vector2(17, 2)
@@ -254,7 +254,7 @@ one_shot = true
 autostart = true
 
 [node name="drone_snd" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("27_8ran4")
+stream = ExtResource("27_oin0s")
 volume_db = 2.0
 pitch_scale = 0.5
 
@@ -271,7 +271,7 @@ frame = 15
 frame_progress = 1.0
 
 [node name="snd_explode" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("44_jxhj3")
+stream = ExtResource("44_1qv6k")
 volume_db = 7.324
 pitch_scale = 0.84
 
