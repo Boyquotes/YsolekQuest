@@ -1,39 +1,36 @@
-[gd_scene load_steps=46 format=3 uid="uid://b76igam5emt8l"]
+[gd_scene load_steps=43 format=3 uid="uid://b76igam5emt8l"]
 
-[ext_resource type="Script" path="res://Scripts/enemies/enemy.gd" id="1_w0v7w"]
-[ext_resource type="Texture2D" uid="uid://cn3qgdl45513k" path="res://Assets/Enemy/monster_1/enemy_korpus1.png" id="2_7x6hm"]
-[ext_resource type="Texture2D" uid="uid://b8i8bw4tpo0wo" path="res://Assets/Enemy/monster_1/enemy_head1.png" id="3_bpgiq"]
-[ext_resource type="Texture2D" uid="uid://cdoj2usu3xuis" path="res://Assets/Enemy/monster_1/enemy_reka_L.png" id="4_4ab5r"]
-[ext_resource type="Texture2D" uid="uid://ctt41alg37wei" path="res://Assets/Enemy/monster_1/enemy_noga_L.png" id="5_thm1h"]
-[ext_resource type="Texture2D" uid="uid://2t4ekpb73mve" path="res://Assets/Enemy/monster_1/enemy_noga_P.png" id="6_3dv8y"]
-[ext_resource type="Script" path="res://Scripts/enemy-fsm/EnemyStateMachine.gd" id="7_ab4bw"]
-[ext_resource type="Script" path="res://Scripts/enemies/idle.gd" id="8_556bd"]
-[ext_resource type="Script" path="res://Scripts/enemies/Walk_Left.gd" id="9_qqpb1"]
-[ext_resource type="Script" path="res://Scripts/enemies/Walk_Right.gd" id="10_kfw1h"]
-[ext_resource type="Script" path="res://Scripts/enemies/Jump_right.gd" id="11_ryev1"]
-[ext_resource type="Script" path="res://Scripts/enemies/Jump_left.gd" id="12_7ino8"]
-[ext_resource type="Script" path="res://Scripts/enemies/Death.gd" id="13_25r7i"]
-[ext_resource type="Script" path="res://Scripts/enemies/jump.gd" id="14_r6add"]
-[ext_resource type="Script" path="res://Scripts/enemies/Atack.gd" id="15_nvp3y"]
-[ext_resource type="Script" path="res://Scripts/enemies/Hit.gd" id="16_k7jjr"]
-[ext_resource type="Script" path="res://Scripts/enemies/Follow.gd" id="17_ppdnn"]
-[ext_resource type="Script" path="res://Scripts/enemies/Release_drone.gd" id="18_i7vfu"]
-[ext_resource type="AudioStream" uid="uid://cg41nvsnxgm4d" path="res://Assets/Sounds/Footstep_Tile_Right.wav" id="19_khvoi"]
-[ext_resource type="AudioStream" uid="uid://cjfvr0k666q2" path="res://Assets/Sounds/jump-3.wav" id="20_xca8e"]
-[ext_resource type="AudioStream" uid="uid://nm6wrhr8ky06" path="res://Assets/Sounds/Hero/upadek1.wav" id="21_1bpnc"]
-[ext_resource type="AudioStream" uid="uid://dkyg3pkatql21" path="res://Assets/Sounds/Hero/sit_down1.wav" id="22_q80jt"]
-[ext_resource type="Texture2D" uid="uid://yys078cup8yd" path="res://Assets/Objects/barHorizontal_red3.png" id="23_d25as"]
-[ext_resource type="Texture2D" uid="uid://c1txs3rc7suh6" path="res://Assets/Objects/barHorizontal_red2.png" id="24_5er6o"]
-[ext_resource type="Script" path="res://Scripts/enemies/Health.gd" id="25_8etik"]
-[ext_resource type="Script" path="res://Scripts/enemies/HitPoints.gd" id="26_i6puo"]
-[ext_resource type="Texture2D" uid="uid://cpwxucu8mg3t0" path="res://Assets/Objects/say.png" id="27_aq0wp"]
-[ext_resource type="Script" path="res://Scripts/enemies/Say.gd" id="28_sedko"]
-[ext_resource type="FontFile" uid="uid://bmonncwiob81c" path="res://Assets/Fonts/Kalam-Regular.ttf" id="29_4qmjc"]
-[ext_resource type="Script" path="res://Scripts/enemies/PlayerActivity.gd" id="30_ltljg"]
-[ext_resource type="Script" path="res://Scripts/enemies/SeeCastLine.gd" id="31_idj0c"]
-[ext_resource type="Texture2D" uid="uid://gfy6x0i3n7sn" path="res://Assets/marker_green.png" id="32_7q8ea"]
-[ext_resource type="AudioStream" uid="uid://dcu22eeu4mh44" path="res://Assets/Sounds/Creepy3.mp3" id="33_mdf1t"]
-[ext_resource type="AudioStream" uid="uid://nek2yjpfrhbu" path="res://Assets/Sounds/Sfx/weird_08.ogg" id="34_anh4y"]
+[ext_resource type="Script" path="res://Scripts/enemies/enemy.gd" id="1_ch3ip"]
+[ext_resource type="Texture2D" uid="uid://cn3qgdl45513k" path="res://Assets/Enemy/monster_1/enemy_korpus1.png" id="2_a8nc2"]
+[ext_resource type="Texture2D" uid="uid://b8i8bw4tpo0wo" path="res://Assets/Enemy/monster_1/enemy_head1.png" id="3_bctxr"]
+[ext_resource type="Texture2D" uid="uid://cdoj2usu3xuis" path="res://Assets/Enemy/monster_1/enemy_reka_L.png" id="4_0xeem"]
+[ext_resource type="Texture2D" uid="uid://ctt41alg37wei" path="res://Assets/Enemy/monster_1/enemy_noga_L.png" id="5_cnu61"]
+[ext_resource type="Texture2D" uid="uid://2t4ekpb73mve" path="res://Assets/Enemy/monster_1/enemy_noga_P.png" id="6_f0o64"]
+[ext_resource type="Script" path="res://Scripts/enemy-fsm/EnemyStateMachine.gd" id="7_v17b4"]
+[ext_resource type="Script" path="res://Scripts/enemies/idle.gd" id="8_5cggf"]
+[ext_resource type="Script" path="res://Scripts/enemies/Walk_Left.gd" id="9_f3074"]
+[ext_resource type="Script" path="res://Scripts/enemies/Walk_Right.gd" id="10_aoemo"]
+[ext_resource type="Script" path="res://Scripts/enemies/Jump_right.gd" id="11_6qbai"]
+[ext_resource type="Script" path="res://Scripts/enemies/Jump_left.gd" id="12_jffqg"]
+[ext_resource type="Script" path="res://Scripts/enemies/Death.gd" id="13_30q0a"]
+[ext_resource type="Script" path="res://Scripts/enemies/jump.gd" id="14_jfeks"]
+[ext_resource type="Script" path="res://Scripts/enemies/Atack.gd" id="15_fd1nm"]
+[ext_resource type="Script" path="res://Scripts/enemies/Hit.gd" id="16_71wjb"]
+[ext_resource type="Script" path="res://Scripts/enemies/Follow.gd" id="17_a167r"]
+[ext_resource type="Script" path="res://Scripts/enemies/Release_drone.gd" id="18_l66k5"]
+[ext_resource type="AudioStream" uid="uid://cg41nvsnxgm4d" path="res://Assets/Sounds/Footstep_Tile_Right.wav" id="19_rlpu6"]
+[ext_resource type="AudioStream" uid="uid://cjfvr0k666q2" path="res://Assets/Sounds/jump-3.wav" id="20_xdmdo"]
+[ext_resource type="AudioStream" uid="uid://nm6wrhr8ky06" path="res://Assets/Sounds/Hero/upadek1.wav" id="21_v4cdg"]
+[ext_resource type="AudioStream" uid="uid://dkyg3pkatql21" path="res://Assets/Sounds/Hero/sit_down1.wav" id="22_6c5sa"]
+[ext_resource type="Texture2D" uid="uid://yys078cup8yd" path="res://Assets/Objects/barHorizontal_red3.png" id="23_jnpm7"]
+[ext_resource type="Texture2D" uid="uid://c1txs3rc7suh6" path="res://Assets/Objects/barHorizontal_red2.png" id="24_mlhhf"]
+[ext_resource type="Script" path="res://Scripts/enemies/Health.gd" id="25_nkknr"]
+[ext_resource type="Script" path="res://Scripts/enemies/HitPoints.gd" id="26_oka27"]
+[ext_resource type="Script" path="res://Scripts/enemies/PlayerActivity.gd" id="27_2t813"]
+[ext_resource type="Script" path="res://Scripts/enemies/SeeCastLine.gd" id="28_ep7of"]
+[ext_resource type="Texture2D" uid="uid://gfy6x0i3n7sn" path="res://Assets/marker_green.png" id="29_q88eu"]
+[ext_resource type="AudioStream" uid="uid://dcu22eeu4mh44" path="res://Assets/Sounds/Creepy3.mp3" id="30_ge3oj"]
+[ext_resource type="AudioStream" uid="uid://nek2yjpfrhbu" path="res://Assets/Sounds/Sfx/weird_08.ogg" id="31_qmx1m"]
 
 [sub_resource type="Animation" id="Animation_pvdyw"]
 resource_name = "Hit_bomb"
@@ -653,7 +650,7 @@ size = Vector2(1182.61, 336)
 [node name="Enemy" type="CharacterBody2D"]
 collision_layer = 4
 collision_mask = 17
-script = ExtResource("1_w0v7w")
+script = ExtResource("1_ch3ip")
 
 [node name="CanvasGroup" type="CanvasGroup" parent="."]
 
@@ -661,14 +658,14 @@ script = ExtResource("1_w0v7w")
 position = Vector2(-5, 68)
 rotation = -0.0352773
 scale = Vector2(0.328543, 0.328543)
-texture = ExtResource("2_7x6hm")
+texture = ExtResource("2_a8nc2")
 
 [node name="Head" type="Sprite2D" parent="CanvasGroup/Torso"]
 z_index = 1
 position = Vector2(31.515, -148.915)
 rotation = 0.191699
 scale = Vector2(1.36032, 1.36032)
-texture = ExtResource("3_bpgiq")
+texture = ExtResource("3_bctxr")
 offset = Vector2(11.5281, -115.281)
 
 [node name="Reka_L" type="Sprite2D" parent="CanvasGroup/Torso"]
@@ -676,7 +673,7 @@ z_index = 1
 position = Vector2(40.3627, -59.3417)
 rotation = 0.340886
 scale = Vector2(1.34067, 1.34067)
-texture = ExtResource("4_4ab5r")
+texture = ExtResource("4_0xeem")
 offset = Vector2(-93.8579, 44.6102)
 
 [node name="Reka_P" type="Sprite2D" parent="CanvasGroup/Torso"]
@@ -684,7 +681,7 @@ z_index = -1
 position = Vector2(42.9351, -60.879)
 rotation = -0.483456
 scale = Vector2(1.26599, 1.26599)
-texture = ExtResource("4_4ab5r")
+texture = ExtResource("4_0xeem")
 offset = Vector2(-95.329, 48.1856)
 
 [node name="Noga_L" type="Sprite2D" parent="CanvasGroup"]
@@ -692,7 +689,7 @@ z_index = -1
 position = Vector2(-14, 113)
 rotation = 0.0270725
 scale = Vector2(0.2682, 0.2682)
-texture = ExtResource("5_thm1h")
+texture = ExtResource("5_cnu61")
 offset = Vector2(-21.2144, 145.47)
 
 [node name="Noga_P" type="Sprite2D" parent="CanvasGroup"]
@@ -700,7 +697,7 @@ z_index = -1
 position = Vector2(-1, 106.529)
 rotation = -0.0302793
 scale = Vector2(0.285138, 0.285138)
-texture = ExtResource("6_3dv8y")
+texture = ExtResource("6_f0o64")
 offset = Vector2(-17.0368, 150.492)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -716,56 +713,56 @@ shape = SubResource("CapsuleShape2D_mmw25")
 one_way_collision = true
 
 [node name="EnemyStateMachine" type="Node" parent="."]
-script = ExtResource("7_ab4bw")
+script = ExtResource("7_v17b4")
 einitial_state = NodePath("idle")
 
 [node name="idle" type="Node" parent="EnemyStateMachine"]
-script = ExtResource("8_556bd")
+script = ExtResource("8_5cggf")
 
 [node name="Walk_Left" type="Node" parent="EnemyStateMachine"]
-script = ExtResource("9_qqpb1")
+script = ExtResource("9_f3074")
 
 [node name="Walk_Right" type="Node" parent="EnemyStateMachine"]
-script = ExtResource("10_kfw1h")
+script = ExtResource("10_aoemo")
 
 [node name="Jump_right" type="Node" parent="EnemyStateMachine"]
-script = ExtResource("11_ryev1")
+script = ExtResource("11_6qbai")
 
 [node name="Jump_left" type="Node" parent="EnemyStateMachine"]
-script = ExtResource("12_7ino8")
+script = ExtResource("12_jffqg")
 
 [node name="Death" type="Node" parent="EnemyStateMachine"]
-script = ExtResource("13_25r7i")
+script = ExtResource("13_30q0a")
 
 [node name="Air" type="Node" parent="EnemyStateMachine"]
-script = ExtResource("14_r6add")
+script = ExtResource("14_jfeks")
 
 [node name="Atack" type="Node" parent="EnemyStateMachine"]
-script = ExtResource("15_nvp3y")
+script = ExtResource("15_fd1nm")
 
 [node name="Hit" type="Node" parent="EnemyStateMachine"]
-script = ExtResource("16_k7jjr")
+script = ExtResource("16_71wjb")
 
 [node name="Follow_left" type="Node" parent="EnemyStateMachine"]
-script = ExtResource("17_ppdnn")
+script = ExtResource("17_a167r")
 
 [node name="Release_drone" type="Node" parent="EnemyStateMachine"]
-script = ExtResource("18_i7vfu")
+script = ExtResource("18_l66k5")
 
 [node name="snd_walk" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("19_khvoi")
+stream = ExtResource("19_rlpu6")
 volume_db = -4.192
 
 [node name="snd_jump" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("20_xca8e")
+stream = ExtResource("20_xdmdo")
 volume_db = 2.0
 pitch_scale = 0.81
 
 [node name="snd_fall" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("21_1bpnc")
+stream = ExtResource("21_v4cdg")
 
 [node name="snd_sit" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("22_q80jt")
+stream = ExtResource("22_6c5sa")
 
 [node name="Health" type="TextureProgressBar" parent="."]
 top_level = true
@@ -774,9 +771,9 @@ offset_right = 200.0
 offset_bottom = -39.0
 scale = Vector2(0.594163, 0.594163)
 value = 50.0
-texture_under = ExtResource("23_d25as")
-texture_progress = ExtResource("24_5er6o")
-script = ExtResource("25_8etik")
+texture_under = ExtResource("23_jnpm7")
+texture_progress = ExtResource("24_mlhhf")
+script = ExtResource("25_nkknr")
 
 [node name="HitPoints" type="Label" parent="."]
 top_level = true
@@ -786,34 +783,15 @@ offset_bottom = -70.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 25
 text = "0"
-script = ExtResource("26_i6puo")
+script = ExtResource("26_oka27")
 
 [node name="Recover_Health" type="Timer" parent="."]
 wait_time = 10.0
 autostart = true
 
-[node name="Say" type="Sprite2D" parent="."]
-top_level = true
-z_index = -1
-position = Vector2(4, -106)
-scale = Vector2(0.083873, 0.083873)
-texture = ExtResource("27_aq0wp")
-script = ExtResource("28_sedko")
-
-[node name="SayTextLabel" type="Label" parent="Say"]
-offset_left = -75.0
-offset_top = -54.0
-offset_right = 5.0
-offset_bottom = -28.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("29_4qmjc")
-theme_override_font_sizes/font_size = 20
-
-[node name="snd_eeee" type="AudioStreamPlayer2D" parent="Say"]
-
 [node name="PlayerActivity" type="Timer" parent="."]
 wait_time = 20.0
-script = ExtResource("30_ltljg")
+script = ExtResource("27_2t813")
 
 [node name="PlayerCast2D" type="RayCast2D" parent="."]
 rotation = 1.56997
@@ -823,7 +801,7 @@ scale = Vector2(0.738, 15)
 visible = false
 top_level = true
 z_index = 2
-script = ExtResource("31_idj0c")
+script = ExtResource("28_ep7of")
 
 [node name="Marker2D" type="Marker2D" parent="."]
 visible = false
@@ -832,10 +810,10 @@ visible = false
 visible = false
 z_index = 2
 scale = Vector2(0.246944, 0.246944)
-texture = ExtResource("32_7q8ea")
+texture = ExtResource("29_q88eu")
 
 [node name="snd_first_see" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("33_mdf1t")
+stream = ExtResource("30_ge3oj")
 volume_db = 8.0
 pitch_scale = 1.08
 
@@ -852,7 +830,7 @@ shape = SubResource("RectangleShape2D_uohuh")
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 
 [node name="snd_release_drone" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("34_anh4y")
+stream = ExtResource("31_qmx1m")
 volume_db = 8.0
 pitch_scale = 0.78
 
@@ -866,8 +844,6 @@ pitch_scale = 1.29
 [connection signal="somebody_hitme" from="." to="EnemyStateMachine/Follow_left" method="_on_enemy_somebody_hitme"]
 [connection signal="animation_finished" from="AnimationPlayer" to="EnemyStateMachine/Hit" method="_on_animation_player_animation_finished"]
 [connection signal="animation_finished" from="AnimationPlayer" to="EnemyStateMachine/Release_drone" method="_on_animation_player_animation_finished"]
-[connection signal="first_hero_catch" from="EnemyStateMachine/idle" to="Say" method="_on_idle_first_hero_catch"]
-[connection signal="first_hero_catch" from="EnemyStateMachine/Follow_left" to="Say" method="_on_follow_left_first_hero_catch"]
 [connection signal="timeout" from="Recover_Health" to="." method="_on_recover_health_timeout"]
 [connection signal="body_entered" from="EyesRange" to="." method="_on_eyes_range_body_entered"]
 [connection signal="body_exited" from="EyesRange" to="." method="_on_eyes_range_body_exited"]

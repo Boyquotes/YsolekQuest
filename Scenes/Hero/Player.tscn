@@ -1,29 +1,29 @@
 [gd_scene load_steps=39 format=3 uid="uid://c44bp5cutt8em"]
 
-[ext_resource type="Script" path="res://Scripts/Hero/Player.gd" id="1_0akvc"]
-[ext_resource type="Texture2D" uid="uid://dekv2d3xxm5ah" path="res://Assets/Hero/BodyParts/korpus2blur.png" id="2_orc1w"]
-[ext_resource type="Texture2D" uid="uid://bq0stw2w7hcdl" path="res://Assets/Hero/BodyParts/glowa2.png" id="3_ca25u"]
-[ext_resource type="Texture2D" uid="uid://dyty0tsek64r5" path="res://Assets/Hero/BodyParts/rekaP2.png" id="4_ujtyx"]
-[ext_resource type="PackedScene" uid="uid://1qp52xv868g7" path="res://Scenes/Guns/gun2.tscn" id="5_obea1"]
-[ext_resource type="Texture2D" uid="uid://cumd2g8cxl4k4" path="res://Assets/Hero/BodyParts/rekaL2.png" id="6_hf7ck"]
-[ext_resource type="Texture2D" uid="uid://cml6hk07ui3dc" path="res://Assets/Hero/BodyParts/nogaL.png" id="7_c5bjl"]
-[ext_resource type="Texture2D" uid="uid://3h2fffmuq65m" path="res://Assets/Hero/BodyParts/nogaP.png" id="8_r5bq5"]
-[ext_resource type="Script" path="res://Scripts/FSM/StateMachine.gd" id="9_3a6p2"]
-[ext_resource type="Script" path="res://Scripts/Hero/Idle.gd" id="10_snoox"]
-[ext_resource type="Script" path="res://Scripts/Hero/Air.gd" id="11_6ysh7"]
-[ext_resource type="Script" path="res://Scripts/Hero/Walk.gd" id="12_tdgg3"]
-[ext_resource type="Script" path="res://Scripts/Hero/Sit.gd" id="13_kkhoi"]
-[ext_resource type="Script" path="res://Scripts/Hero/to_aim.gd" id="14_wfs1m"]
-[ext_resource type="Script" path="res://Scripts/Hero/Run.gd" id="15_m7mvm"]
-[ext_resource type="Script" path="res://Scripts/Hero/run_left.gd" id="16_6548c"]
-[ext_resource type="Script" path="res://Scripts/Hero/Death.gd" id="17_pnbmj"]
-[ext_resource type="Script" path="res://Scripts/Hero/Hit_bomb.gd" id="18_lu3cu"]
-[ext_resource type="AudioStream" uid="uid://bbr2kw2haatjs" path="res://Assets/Sounds/Hero/Footsteps.wav" id="19_47ru8"]
-[ext_resource type="AudioStream" uid="uid://em8gixmuuc4y" path="res://Assets/Sounds/Hero/jump1.wav" id="20_kce1i"]
-[ext_resource type="AudioStream" uid="uid://nm6wrhr8ky06" path="res://Assets/Sounds/Hero/upadek1.wav" id="21_t2qde"]
-[ext_resource type="AudioStream" uid="uid://dkyg3pkatql21" path="res://Assets/Sounds/Hero/sit_down1.wav" id="22_a24w5"]
-[ext_resource type="Texture2D" uid="uid://gfy6x0i3n7sn" path="res://Assets/marker_green.png" id="23_lb121"]
-[ext_resource type="Texture2D" uid="uid://df2j8khndeukc" path="res://Assets/Hero/playershadow.png" id="24_gr38b"]
+[ext_resource type="Script" path="res://Scripts/Hero/Player.gd" id="1_qbl24"]
+[ext_resource type="Texture2D" uid="uid://dekv2d3xxm5ah" path="res://Assets/Hero/BodyParts/korpus2blur.png" id="2_4i1ac"]
+[ext_resource type="Texture2D" uid="uid://bq0stw2w7hcdl" path="res://Assets/Hero/BodyParts/glowa2.png" id="3_jvhvp"]
+[ext_resource type="Texture2D" uid="uid://dyty0tsek64r5" path="res://Assets/Hero/BodyParts/rekaP2.png" id="4_6v580"]
+[ext_resource type="PackedScene" uid="uid://1qp52xv868g7" path="res://Scenes/Guns/gun2.tscn" id="5_xn472"]
+[ext_resource type="Texture2D" uid="uid://cumd2g8cxl4k4" path="res://Assets/Hero/BodyParts/rekaL2.png" id="6_jregr"]
+[ext_resource type="Texture2D" uid="uid://cml6hk07ui3dc" path="res://Assets/Hero/BodyParts/nogaL.png" id="7_cpvy4"]
+[ext_resource type="Texture2D" uid="uid://3h2fffmuq65m" path="res://Assets/Hero/BodyParts/nogaP.png" id="8_tkb4f"]
+[ext_resource type="Script" path="res://Scripts/FSM/StateMachine.gd" id="9_0i3rd"]
+[ext_resource type="Script" path="res://Scripts/Hero/Idle.gd" id="10_idbw1"]
+[ext_resource type="Script" path="res://Scripts/Hero/Air.gd" id="11_notmr"]
+[ext_resource type="Script" path="res://Scripts/Hero/Walk.gd" id="12_rthy5"]
+[ext_resource type="Script" path="res://Scripts/Hero/Sit.gd" id="13_ge13a"]
+[ext_resource type="Script" path="res://Scripts/Hero/to_aim.gd" id="14_i5vg2"]
+[ext_resource type="Script" path="res://Scripts/Hero/Run.gd" id="15_clsif"]
+[ext_resource type="Script" path="res://Scripts/Hero/run_left.gd" id="16_gajve"]
+[ext_resource type="Script" path="res://Scripts/Hero/Death.gd" id="17_2kc1g"]
+[ext_resource type="Script" path="res://Scripts/Hero/Hit_bomb.gd" id="18_n575q"]
+[ext_resource type="AudioStream" uid="uid://bbr2kw2haatjs" path="res://Assets/Sounds/Hero/Footsteps.wav" id="19_c01pp"]
+[ext_resource type="AudioStream" uid="uid://em8gixmuuc4y" path="res://Assets/Sounds/Hero/jump1.wav" id="20_6yi02"]
+[ext_resource type="AudioStream" uid="uid://nm6wrhr8ky06" path="res://Assets/Sounds/Hero/upadek1.wav" id="21_kbeso"]
+[ext_resource type="AudioStream" uid="uid://dkyg3pkatql21" path="res://Assets/Sounds/Hero/sit_down1.wav" id="22_r1aqq"]
+[ext_resource type="Texture2D" uid="uid://gfy6x0i3n7sn" path="res://Assets/marker_green.png" id="23_hmkfr"]
+[ext_resource type="Texture2D" uid="uid://df2j8khndeukc" path="res://Assets/Hero/playershadow.png" id="24_tprf0"]
 
 [sub_resource type="Animation" id="Animation_75dfj"]
 resource_name = "Hit_bomb"
@@ -1403,7 +1403,7 @@ size = Vector2(1568, 87)
 [node name="Player" type="CharacterBody2D"]
 z_index = 1
 collision_mask = 31
-script = ExtResource("1_0akvc")
+script = ExtResource("1_qbl24")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -1413,13 +1413,13 @@ libraries = {
 [node name="Torso" type="Sprite2D" parent="."]
 position = Vector2(-2, -20)
 rotation = 0.112189
-texture = ExtResource("2_orc1w")
+texture = ExtResource("2_4i1ac")
 offset = Vector2(2, -148)
 
 [node name="Head" type="Sprite2D" parent="Torso"]
 position = Vector2(-19, -325)
 rotation = 0.343945
-texture = ExtResource("3_ca25u")
+texture = ExtResource("3_jvhvp")
 offset = Vector2(-14, -106)
 
 [node name="HeadCollision" type="CollisionPolygon2D" parent="Torso/Head"]
@@ -1432,23 +1432,23 @@ polygon = PackedVector2Array(16, -119.9, 41, -113.9, 62, -102.4, 90, -77.9, 101.
 z_index = 1
 position = Vector2(-19.3312, -208.819)
 rotation = 1.63562
-texture = ExtResource("4_ujtyx")
+texture = ExtResource("4_6v580")
 offset = Vector2(97.6998, -134.784)
 
-[node name="Gun2" parent="Torso/arm_r" instance=ExtResource("5_obea1")]
+[node name="Gun2" parent="Torso/arm_r" instance=ExtResource("5_xn472")]
 
 [node name="arm_l" type="Sprite2D" parent="Torso"]
 z_index = -1
 position = Vector2(-16.2184, -206.482)
 rotation = 1.42303
-texture = ExtResource("6_hf7ck")
+texture = ExtResource("6_jregr")
 offset = Vector2(79.4791, -106.527)
 
 [node name="leg_l" type="Sprite2D" parent="."]
 z_index = -1
 position = Vector2(-4, -14)
 rotation = -0.03759
-texture = ExtResource("7_c5bjl")
+texture = ExtResource("7_cpvy4")
 offset = Vector2(-22, 121)
 
 [node name="leg_p" type="Sprite2D" parent="."]
@@ -1456,39 +1456,39 @@ show_behind_parent = true
 z_index = -1
 position = Vector2(44, -9)
 rotation = 0.0238309
-texture = ExtResource("8_r5bq5")
+texture = ExtResource("8_tkb4f")
 offset = Vector2(67, 123)
 
 [node name="StateMachine" type="Node" parent="."]
-script = ExtResource("9_3a6p2")
+script = ExtResource("9_0i3rd")
 initial_state = NodePath("Air")
 
 [node name="Idle" type="Node" parent="StateMachine"]
-script = ExtResource("10_snoox")
+script = ExtResource("10_idbw1")
 
 [node name="Air" type="Node" parent="StateMachine"]
-script = ExtResource("11_6ysh7")
+script = ExtResource("11_notmr")
 
 [node name="Walk" type="Node" parent="StateMachine"]
-script = ExtResource("12_tdgg3")
+script = ExtResource("12_rthy5")
 
 [node name="target_down" type="Node" parent="StateMachine"]
-script = ExtResource("13_kkhoi")
+script = ExtResource("13_ge13a")
 
 [node name="target_up" type="Node" parent="StateMachine"]
-script = ExtResource("14_wfs1m")
+script = ExtResource("14_i5vg2")
 
 [node name="run_right" type="Node" parent="StateMachine"]
-script = ExtResource("15_m7mvm")
+script = ExtResource("15_clsif")
 
 [node name="run_left" type="Node" parent="StateMachine"]
-script = ExtResource("16_6548c")
+script = ExtResource("16_gajve")
 
 [node name="Death" type="Node" parent="StateMachine"]
-script = ExtResource("17_pnbmj")
+script = ExtResource("17_2kc1g")
 
 [node name="Hit_bomb" type="Node" parent="StateMachine"]
-script = ExtResource("18_lu3cu")
+script = ExtResource("18_n575q")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(31, -151)
@@ -1497,21 +1497,21 @@ scale = Vector2(13.1557, -22.7394)
 shape = SubResource("RectangleShape2D_p2dj4")
 
 [node name="snd_walk" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("19_47ru8")
+stream = ExtResource("19_c01pp")
 volume_db = -0.748
 
 [node name="snd_jump" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("20_kce1i")
+stream = ExtResource("20_6yi02")
 
 [node name="snd_fall" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("21_t2qde")
+stream = ExtResource("21_kbeso")
 
 [node name="snd_sit" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("22_a24w5")
+stream = ExtResource("22_r1aqq")
 
 [node name="OriginMarker" type="Sprite2D" parent="."]
 visible = false
-texture = ExtResource("23_lb121")
+texture = ExtResource("23_hmkfr")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 visible = false
@@ -1521,7 +1521,7 @@ enabled = false
 [node name="PlayerShadow" type="Sprite2D" parent="."]
 position = Vector2(47, 321)
 scale = Vector2(5.38604, 6.06604)
-texture = ExtResource("24_gr38b")
+texture = ExtResource("24_tprf0")
 
 [node name="PlayerArea" type="Area2D" parent="."]
 collision_mask = 8

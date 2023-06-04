@@ -43,10 +43,16 @@ func physics_update(delta: float) -> void:
 	# SEE PLAYER:					
 	if 	enemy.see_Player == true:		
 		if enemy.first_hero_catch == false:
-			emit_signal("first_hero_catch")
+			#emit_signal("first_hero_catch")
 			enemy.first_hero_catch = true
+
+			# This enemy cloud say information:
+			enemy.chat_instance = enemy.Chat.instantiate()
+			enemy.chat_instance.Say("Eeeee ty \ncwaniaczku !!!",6)
+			enemy.get_tree().root.add_child(enemy.chat_instance)
+			#enemy.chat_instance.connect('early_hit', _on_bomb_early_hit)
 			print("enemy: First time see profesor")
-			get_node("../../snd_first_see").play()
+			#get_node("../../snd_first_see").play()
 			
 	# ESCAPE:		
 	if enemy.global_position.distance_to(gv.Hero_global_position) <= enemy.contact_distance:

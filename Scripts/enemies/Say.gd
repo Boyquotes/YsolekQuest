@@ -45,6 +45,7 @@ func first_time_catch_profesor():
 	var tween:Tween = create_tween()
 	tween.parallel().tween_property(self, "scale", Vector2.ONE * 1, 0.5)
 	tween.parallel().tween_property(self, "position", Vector2(position.x - shift_x,position.y - shift_y), 0.5)
+	tween.connect('finished', _on_tween_finished)
 	print("enemy say: Hello profesor!")
 	shift_y += 100
 	shift_x += 20

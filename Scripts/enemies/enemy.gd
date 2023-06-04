@@ -58,7 +58,8 @@ var player_collision_point:Vector2
 var drone:CharacterBody2D
 
 @onready var flying_drone:Resource = preload("res://Scenes/Enemies/Flying _drone/Flying_drone.tscn")
-
+@onready var Chat:Resource = preload("res://Scenes/CloudChat/Chat.tscn")
+var chat_instance:Node2D
 
 func _ready():
 	gv.enemy_fsm = $EnemyStateMachine
@@ -135,7 +136,7 @@ func hit():
 	if direction == "R":
 		position.x -= 20	
 	if health > 0:
-		health -= 10
+		health -= 10 # DAMAGE RATE   
 	if health <= 0:
 		emit_signal("enemy2_death")
 		queue_free()  		
